@@ -1,8 +1,28 @@
+/*
+Stores the generations and architectures of the 3 popular GPUs
+
+*/
+#ifndef H_GenArchEnum
+#define H_GenArchEnum
+
 #pragma once
 class GenArchEnum
 {
 public:
+	void displayNvidiaGen();
+	void displayNvidiaArch();
 
+	void displayAMDGen();
+	void displayAMDArch();
+
+	void displayAMDGen();
+	void displayAMDArch();
+	
+
+	//getters TODO
+
+	
+	
 
 private:
 	//Nvidia GPUs
@@ -30,3 +50,4 @@ private:
 
 };
 	
+#endif
