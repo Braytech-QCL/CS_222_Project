@@ -6,6 +6,8 @@ Stores the generations and architectures of the 3 popular GPUs
 #define H_GenArchEnum
 
 #pragma once
+#include <iostream>
+
 class GenArchEnum
 {
 public:
@@ -15,8 +17,8 @@ public:
 	void displayAMDGen();
 	void displayAMDArch();
 
-	void displayAMDGen();
-	void displayAMDArch();
+	void displayIntelGen();
+	void displayIntelArch();
 	
 
 	//getters TODO

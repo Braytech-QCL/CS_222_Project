@@ -13,7 +13,11 @@ using namespace std;
 class Processor
 {
 public:
-
+	//TODO: show info
+	// 
+	//TODO: add setters and getters
+	// 
+	//TODO: constructor
 private:
 	int baseClock; //(measured in GHz/gigahertz) GPU core clock speed on the is the speed at which your GPU processes data
 	int boostClock; //(measured in GHz/gigahertz) highest processor clock can boost to with proper cooling
