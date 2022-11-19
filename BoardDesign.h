@@ -15,7 +15,7 @@ class BoardDesign
 {
 public:
 	//TODO: show info
-
+	void showInfo();
 
 
 
@@ -70,7 +70,7 @@ public:
 	}
 
 	void setWidth(double wid = 0) {
-		width = wid
+		width = wid;
 	}
 
 	void setHeight(double hei = 0) {

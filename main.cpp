@@ -1,5 +1,6 @@
 #include <iostream>
 #include "GPU.h"
+#include "BoardDesign.h"
 
 using namespace std;
 
@@ -9,12 +10,14 @@ void selection(int option);
 
 int main()
 {
-	GPU test = GPU("RX 570", "2017 Q3", 354);
-	test.showInfo();
+	//test of show info
+	//constructor includes GPU and BoardDesign, other classes have not been connected to GPU
+	GPU test = GPU("RX 570", "2017 Q3", 354, 2.0, 200, "HDMI x1, Display Prot x3, DVI x1", "8 pin x1", 50, 30, 10);
+	test.showInfoGPU();
 
-	selection(3);
 
-	cout << "\n###---Welcome to GPU Database---###\n";
+
+	cout << "\n\n###---Welcome to GPU Database---###\n";
 	while (true)
 	{
 		mainMenu();
@@ -40,7 +43,7 @@ int mainMenu()
 	}
 	else if (option == 3)
 	{
-		cout << "\n\nChoose a option to contiune\n";
+		cout << "\n\n\nChoose a option to contiune\n";
 		cout << "1. Search for a specific graphics card by name\n";
 		cout << "2. View graphics cards by architecture\n";
 		cout << "3. View graphics cards by generation\n";
@@ -69,15 +72,15 @@ void selection(int option)
 	{
 		case 1: //adding to list
 		{
-			cout << "Adding to list";
+			cout << "Adding to list\n";
 			break;
 		}
 		case 2: //deleteing from the list
 		{
-			cout << "Deleting to list";
+			cout << "Deleting to list\n";
 			break;
 		}
-		case 3: //something has gone wrong
+		case 3: //something has gone wrong, should never execute
 		{
 			cout << "Critical error encountred. You shouldnt be here..." << endl;
 			cout << "\nCongratulations! The simple fact that you're standing here listening to me means you've made a glorious contribution to science.";
@@ -86,22 +89,22 @@ void selection(int option)
 		}
 		case 4: //search list
 		{
-			cout << "Searching list";
+			cout << "Searching list\n";
 			break;
 		}
 		case 5: //view by arch
 		{
-			cout << "Viewing database by arch";
+			cout << "Viewing database by arch\n";
 			break;
 		}
 		case 6: //view by gen
 		{
-			cout << "Viewing by gen";
+			cout << "Viewing by gen\n";
 			break;
 		}
 		case 7: //view all
 		{
-			cout << "Viewing all";
+			cout << "Viewing all\n";
 			break;
 		}
 		default:

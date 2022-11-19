@@ -21,7 +21,7 @@ public:
 		return baseClock;
 	}
 	int getBoostClock() {
-		return boostClock
+		return boostClock;
 	}
 	string getBusInterface() {
 		return busInterface;
@@ -55,11 +55,11 @@ public:
 	void setBoostClock(int boostC = 0) {
 		boostClock = boostC;
 	}
-	void setBusInterface(string busI "") {
+	void setBusInterface(string busI = "") {
 		busInterface = busI;
 	}
 	void setDieSize(int dieS = 0) {
-		dieSize = diesS;
+		dieSize = dieS;
 	}
 	void setTransistors(int trans = 0) {
 		transistors = trans;
