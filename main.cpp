@@ -18,10 +18,8 @@ int main()
 
 
 	cout << "\n\n###---Welcome to GPU Database---###\n";
-	while (true)
+	while (mainMenu())
 	{
-		mainMenu();
-
 	}
 
 }
@@ -32,15 +30,19 @@ int mainMenu()
 	cout << "Choose a option to contiune\n";
 	cout << "1. Add a new graphics card to the database\n";
 	cout << "2. Delete a grahics card from the list\n";
-	cout << "3. Open the view GPU menu\nOption: ";
+	cout << "3. Open the view GPU menu\n";
+	cout << "4. Close the Program\nOption: ";
+
 	cin >> option;
 	cout << endl;
 
-	if (option > 3 || option < 1)
+	if (option > 4 || option < 1)
 	{
 		cout << "Error reading input, please try again\n";
 		return mainMenu();
 	}
+	else if (option == 4)
+		return 0;
 	else if (option == 3)
 	{
 		cout << "\n\n\nChoose a option to contiune\n";
