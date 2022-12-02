@@ -23,13 +23,17 @@ public:
 
 	//getters TODO
 
-	
+	GenArchEnum(string storing = "");
 	
 
 private:
+	string storing;
+	string storingGen;
+	string storingArch;
+
 	//Nvidia GPUs
 	enum nvidiaGeneration{
-		GeForce10series, GeForce16Series, GeForce20series, GeForce30Series, GeForce40series};
+		GeForce10series, GeForce16Series, GeForce20series, GeForce30Series, GeForce40series };
 	enum nvidiaArchitecture{Pascal, Turing, Ampere, Ada};
 	
 	//AMD GPUs
@@ -42,7 +46,7 @@ private:
 
 	//Intel GPUs
 	//Intel is very new into the dedicated GPU market, they have not actually released anything
-	//past Alchemist
+	//past Alchemist.
 	enum IntelGeneration {
 		Arc_Alchemist, Arc_Battlemage, Arc_Celestial, Arc_Druid
 	};
