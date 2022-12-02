@@ -78,7 +78,7 @@ public:
 	}
 
 	BoardDesign(double slotW = 0, int tdp = 0, string output = "", 
-		string powerCon = "", double len = 0, double wid = 0, double hei = 0);
+                string powerCon = "", double len = 0, double wid = 0, double hei = 0);
 
 
 private:

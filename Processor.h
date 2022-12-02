@@ -81,10 +81,24 @@ public:
 	void setMemoryClock(int memoryC = 0) {
 		memoryClock = memoryC;
 	}
-	
+    
+	//constructor for processor
 	Processor(int baseC = 0 , int boostC = 0, string busI = "",
 		int dieS = 0, int trans = 0, int processorS = 0, int memoryS = 0,
-		int memoryG = 0, int memoryB = 0, int memoryC = 0);
+              int memoryG = 0, int memoryB = 0, int memoryC = 0){
+        //Parameters
+        baseClock = baseC;
+        boostClock = boostC;
+        busInterface = busI;
+        dieSize = dieS;
+        transistors = trans;
+        processorSize = processorS;
+        memorySize = memoryS;
+        memoryGen = memoryG;
+        memoryBus = memoryB;
+        memoryClock = memoryC;
+        
+    }
 private:
 	int baseClock; //(measured in GHz/gigahertz) GPU core clock speed on the is the speed at which your GPU processes data
 	int boostClock; //(measured in GHz/gigahertz) highest processor clock can boost to with proper cooling

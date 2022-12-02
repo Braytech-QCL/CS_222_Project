@@ -54,14 +54,17 @@ public:
 
 
 	GPU(string _name = "", string _releaseDate = "", int _MSRP = 0, double slotW = 0, int tdp = 0, string output = "",
-		string powerCon = "", double len = 0, double wid = 0, double hei = 0);
+		string powerCon = "", double len = 0, double wid = 0, double hei = 0, int baseC = 0 , int boostC = 0, string busI = "",
+        int dieS = 0, int trans = 0, int processorS = 0, int memoryS = 0,
+              int memoryG = 0, int memoryB = 0, int memoryC = 0);
 
 private:
 	string name; //name of GPU
 	string releaseDate; //the date the GPU was released for purchase
 	int MSRP; //the manufacturers suggested retail price
 
-	BoardDesign test; //used to call Board Design's show info. Yes it needs to be cleaned up...
+	BoardDesign boardVar; //used to call Board Design's show info. Yes it needs to be cleaned up...
+    Processor processorVar; //Calls processor info
 };
 
 #endif
