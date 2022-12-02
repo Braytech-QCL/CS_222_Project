@@ -63,9 +63,11 @@ int mainMenu()
 			return mainMenu();
 		else
 			option += 3;
+        
 	}
 
 	selection(option);
+    return 0;
 }
 
 void selection(int option)
