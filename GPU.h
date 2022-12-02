@@ -14,7 +14,7 @@ class GPU
 {
 public:
 	//Show Info
-	void showInfoGPU();
+	void showInfo();
 
 	//Setters
 	void setName(string _name = "")

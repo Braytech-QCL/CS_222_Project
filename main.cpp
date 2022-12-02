@@ -13,7 +13,7 @@ int main()
 	//test of show info
 	//constructor includes GPU and BoardDesign, other classes have not been connected to GPU
 	GPU test = GPU("RX 570", "2017 Q3", 354, 2.0, 200, "HDMI x1, Display Prot x3, DVI x1", "8 pin x1", 50, 30, 10);
-	test.showInfoGPU();
+	test.showInfo();
 
 
 

@@ -14,7 +14,9 @@ class Processor
 {
 public:
 	//TODO: show info
-	// 
+
+	void showInfo();
+	
 	//Getters
 
 	int getBaseClock() {

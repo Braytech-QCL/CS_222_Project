@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void GPU::showInfoGPU() 
+void GPU::showInfo() 
 {
 	cout << "Graphics Card Name: " << name << endl;
 	cout << "Release date: " << releaseDate << endl;

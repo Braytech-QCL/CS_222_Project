@@ -14,7 +14,7 @@ using namespace std;
 class BoardDesign
 {
 public:
-	//TODO: show info
+	//show info
 	void showInfo();
 
 
