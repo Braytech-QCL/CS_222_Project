@@ -2,6 +2,7 @@
 Stores the generations and architectures of the 3 popular GPUs
 
 */
+
 #ifndef H_GenArchEnum
 #define H_GenArchEnum
 
@@ -22,6 +23,8 @@ public:
 	
 
 	//getters TODO
+    /*
+    
 
 	GenArchEnum(string storing = "");
 	
@@ -53,7 +56,9 @@ private:
 	enum IntelArchitecture {
 		Xe_HPG, Xe2_HPG, Xe3_HPG, Xe_Next_Architecture
 	};
+    */
 
 };
 	
 #endif
+

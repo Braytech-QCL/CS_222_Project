@@ -41,6 +41,7 @@
 		47AFAD26293A7F1700D914F3 /* CS_222_Project.sln */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CS_222_Project.sln; path = ../../CS_222_Project.sln; sourceTree = "<group>"; };
 		47AFAD27293A7F1700D914F3 /* GPU.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GPU.cpp; path = ../../GPU.cpp; sourceTree = "<group>"; };
 		47AFAD28293A7F1700D914F3 /* CS_222_Project.vcxproj.filters */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = CS_222_Project.vcxproj.filters; path = ../../CS_222_Project.vcxproj.filters; sourceTree = "<group>"; };
+		47AFAD32293A8BE500D914F3 /* LinkyListy.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LinkyListy.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +87,7 @@
 				47AFAD24293A7F1700D914F3 /* Processor.cpp */,
 				47AFAD20293A7F1700D914F3 /* Processor.h */,
 				47AFAD22293A7F1700D914F3 /* README.md */,
+				47AFAD32293A8BE500D914F3 /* LinkyListy.hpp */,
 			);
 			path = 222_Project;
 			sourceTree = "<group>";
