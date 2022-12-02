@@ -33,9 +33,11 @@ void GenArchEnum::displayIntelArch()
 }
 
 //example Nvida GeForce40series Ada
+//changes all to lower case
 GenArchEnum::GenArchEnum(string storing)
 {
 	string brand, gen, arch;
+
 
 	int status = 0;
 
@@ -45,15 +47,15 @@ GenArchEnum::GenArchEnum(string storing)
 			status++;
 		if (status == 0)
 		{
-			brand += storing[i];
+			brand += tolower(storing[i]);
 		}
 		if (status == 1)
 		{
-			gen += storing[i];
+			gen += tolower(storing[i]);
 		}
 		if (status == 2)
 		{
-			status += storing[i];
+			status += tolower(storing[i]);
 		}
 
 	}
@@ -74,11 +76,65 @@ GenArchEnum::GenArchEnum(string storing)
 	switch (status)
 	{
 		case 1: //Nvidia Graphics Card
+		//GeForce10series, GeForce16Series, GeForce20series, GeForce30Series, GeForce40series
+		//Pascal, Turing, Ampere, Ada
 		{
-			nvidiaGeneration storingGen = gen;
+			//Generation
+			if (gen == "geforce10series")
+			{
+				nvidiaGeneration storingGen = GeForce16Series;
+			}
+			if (gen == "geforce20series")
+			{
+				nvidiaGeneration storingGen = GeForce20series;
+			}
+			if (gen == "geforce30Series")
+			{
+				nvidiaGeneration storingGen = GeForce30Series;
+			}
+			if (gen == "geforce40series")
+			{
+				nvidiaGeneration storingGen = GeForce40series;
+			}
+
+			//Arch
+			if (arch == "pascal")
+			{
+				nvidiaArchitecture storingArch = Pascal;
+			}
+			if (arch == "turing")
+			{
+				nvidiaArchitecture storingArch = Turing;
+			}
+			if (arch == "ampere")
+			{
+				nvidiaArchitecture storingArch = Ampere;
+			}
+			if (arch == "ada")
+			{
+				nvidiaArchitecture storingArch = Ada;
+			}
 		}
 		case 2: //AMD Graphics Card
+		//RadeonRX400Series, RadeonRX500Series, RadeonRX5000Series, RadeonRX6000Series, RadeonRX7000Series
+		//Graphics_Core_Next_4, AMD_Graphics_Core_Next_5, RDNA1, RDNA2, RDNA3
 		{
+			if (gen == "radeonrx400series")
+			{
+				AMDGeneration storingGen = RadeonRX400Series;
+			}
+			if (gen == "radeonrx400series")
+			{
+				AMDGeneration storingGen = RadeonRX400Series;
+			}
+			if (gen == "radeonrx400series")
+			{
+				AMDGeneration storingGen = RadeonRX400Series;
+			}
+			if (gen == "radeonrx400series")
+			{
+				AMDGeneration storingGen = RadeonRX400Series;
+			}
 
 		}
 		case 3: //Intel Grahpics Card
