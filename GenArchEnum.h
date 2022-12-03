@@ -9,6 +9,8 @@ Stores the generations and architectures of the 3 popular GPUs
 #pragma once
 #include <iostream>
 
+using namespace std;
+
 class GenArchEnum
 {
 public:
@@ -23,7 +25,6 @@ public:
 	
 
 	//getters TODO
-    /*
     
 
 	GenArchEnum(string storing = "");
@@ -56,7 +57,6 @@ private:
 	enum IntelArchitecture {
 		Xe_HPG, Xe2_HPG, Xe3_HPG, Xe_Next_Architecture
 	};
-    */
 
 };
 	
