@@ -13,6 +13,7 @@ int mainMenu();
 void selection(int option);
 void searchList();
 void populateList();
+void addList();
 
 
 int main()
@@ -37,6 +38,13 @@ int main()
 
 }
 
+/// <Displays menu for user to decide what they want the program to do>
+/// 
+/// Precondition: Function called from main
+/// Postcondition: Selection function called, user input sent
+/// 
+/// </summary>
+/// <returns></The users choice, what they want the program to do>
 int mainMenu()
 {
 	int option;
@@ -83,6 +91,10 @@ int mainMenu()
     return 0;
 }
 
+/// <Uses a input from a user and directs them to the appropriate function>
+/// 
+/// </summary>
+/// <param name="option"></Number chosen by user corresponding to what they wan the program to do>
 void selection(int option)
 {
 	switch(option)
@@ -90,6 +102,7 @@ void selection(int option)
 		case 1: //adding to list
 		{
 			cout << "Adding to list\n";
+			addList();
 			break;
 		}
 		case 2: //deleteing from the list
@@ -124,6 +137,7 @@ void selection(int option)
 		case 7: //view all
 		{
 			cout << "Viewing all\n";
+			GPUDatabaseList.print();
 			break;
 		}
 		default:
@@ -131,6 +145,9 @@ void selection(int option)
 	}
 }
 
+/// <Function allows user to enter the name of a gpu to see if it is present in list>
+/// 
+/// </summary>
 void searchList()
 {
 	string gpuSearch = "";
@@ -142,7 +159,7 @@ void searchList()
 
 	GPUDatabaseList.search(test, gpuSearch);
 
-
+	mainMenu();
 }
 
 //GPU::GPU(string _name, string _releaseDate, int _MSRP, double slotW, int tdp, string output,
@@ -151,7 +168,6 @@ void searchList()
 //int memoryG, int memoryB, int memoryC)
 void populateList()
 {
-	GPU test1 = GPU("RX 570", "2017 Q3", 354, 2.0, 200, "HDMI x1, Display Prot x3, DVI x1", "8 pin x1", 50, 30, 10);
 	GPU test2 = GPU("NVIDIA GeForce RTX 2080 Ti 12 GB", "2019 Q4 ", 999, 2, 250, "HDMI / 3x DisplayPort 1.4a / USB Type - C", "2x 8 - pin", 267, 116, 35, 1410, 1650,    "PCIe 3.0 x16", 754, 18600, 12, 12, 6, 384, 2000);
 	GPU test3 = GPU("NVIDIA GeForce RTX 3070", "2020 Q3", 499, 2, 220, "HDMI 2.1 / 3x DisplayPort1.4a", "1x 12 - pin", 242, 112, 35, 1500, 1725, "PCIe4.0 x16", 392, 17400, 8, 8, 6, 256, 1750);
 	GPU test4 = GPU("NVIDIA GeForce GTX 1050", "2016 Q4", 109, 2, 75, "DVI / HDMI / DisplayPort 1.4a", "None", 145, 111, 35, 1354, 1455, "PCIe 3.0 x16", 132, 3300, 14, 2, 5, 128, 1752);
@@ -167,7 +183,6 @@ void populateList()
 	GPU test12 = GPU("AMD Radeon Pro W5700", "2020", 599, 2, 230, "HDMI 2.1 / DisplayPort 1.4", "2x 8-pin", 240, 130, 0, 1605, 1905, "PCIe 4.0 x16", 251, 10300, 7, 8, 57, 256, 16000);
 	GPU test13 = GPU("NVIDIA GeForce RTX 2060 Super", "2019", 399, 2, 175, "DVI / HDMI / DisplayPort 1.4a", "1x 8-pin", 175, 111, 0, 1470, 1650, "PCIe 3.0 x16", 192, 6300, 12, 8, 20, 256, 14000);
 
-	GPUDatabaseList.appendNodeFront(test1);
 	GPUDatabaseList.appendNodeFront(test2);
 	GPUDatabaseList.appendNodeFront(test3);
 	GPUDatabaseList.appendNodeFront(test4);
@@ -183,4 +198,56 @@ void populateList()
 	GPUDatabaseList.appendNodeFront(test11);
 	GPUDatabaseList.appendNodeFront(test12);
 	GPUDatabaseList.appendNodeFront(test13);
+}
+
+/// <Allows user to add GPU to database>
+/// 
+/// Precondition: Function was called from selection function
+/// Postcondition: GPU added to list
+/// 
+/// </summary>
+void addList()
+{
+	//vars used to define GPU obj by user
+	string name, reDate;
+	int msrp;
+
+	int option;
+	cout << "\n\n\nChoose a option to contiune\n";
+	cout << "1. Add a GPU to the list with minimal specification \n";
+	cout << "2. Add a GPU to the list with full specification\nChoice:";
+	cin >> option;
+	cout << endl;
+
+	if (option == 1)
+	{
+		GPU temp = GPU();
+		cin.ignore();
+		cout << "Enter the name of the GPU you would like to enter\n";
+		getline(cin, name);
+		temp.setName(name);
+
+		cout << "Enter the release date of the GPU (year/quater format, 20XX QX)\n";
+		cin >> reDate;
+		getline(cin, reDate);
+		temp.setReleaseDate(reDate);
+
+		cout << "Enter the suggested price, or MSRP, of the GPU\n";
+		cin >> msrp;
+		temp.setMSRP(msrp);
+
+		GPUDatabaseList.appendNodeFront(temp);
+		cout << "GPU added to list.\n\n";
+	}
+	else if (option == 2)
+	{
+		cout << "Why do you hate your self?";
+	}
+	else
+	{
+		cout << "Error reading input, please try again\n";
+		return addList();
+	}
+
+	mainMenu();
 }
