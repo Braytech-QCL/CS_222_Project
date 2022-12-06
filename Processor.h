@@ -6,11 +6,12 @@ Catalogues the characteristics of the GPU processor and memory
 #define H_Processor
 
 #pragma once
+#include "BoardDesign.h"
 #include <iostream>
 
 using namespace std;
 
-class Processor
+class Processor 
 {
 public:
 	//TODO: show info
@@ -85,8 +86,12 @@ public:
 	//constructor for processor
 	Processor(int baseC = 0 , int boostC = 0, string busI = "",
 		int dieS = 0, int trans = 0, int processorS = 0, int memoryS = 0,
-              int memoryG = 0, int memoryB = 0, int memoryC = 0){
+              int memoryG = 0, int memoryB = 0, int memoryC = 0, double slotW = 0, int tdp = 0, string output = "",
+		string powerCon = "", double len = 0, double wid = 0, double hei = 0)
+	{
         //Parameters
+		boardDesign = BoardDesign(slotW, tdp, output, powerCon, len, wid, hei);
+
         baseClock = baseC;
         boostClock = boostC;
         busInterface = busI;
@@ -100,6 +105,8 @@ public:
         
     }
 private:
+	BoardDesign boardDesign; //Processor HAS A board design
+
 	int baseClock; //(measured in GHz/gigahertz) GPU core clock speed on the is the speed at which your GPU processes data
 	int boostClock; //(measured in GHz/gigahertz) highest processor clock can boost to with proper cooling
 	string busInterface; //expansion bus standered, higher bus means more data can be transferred quickly and in larger volumes

@@ -223,16 +223,16 @@ void addList()
 	{
 		GPU temp = GPU();
 		cin.ignore();
-		cout << "Enter the name of the GPU you would like to enter\n";
+		cout << "\nEnter the name of the GPU you would like to enter\n";
 		getline(cin, name);
 		temp.setName(name);
 
-		cout << "Enter the release date of the GPU (year/quater format, 20XX QX)\n";
+		cout << "\nEnter the release date of the GPU (year/quater format, 20XX QX)\n";
 		cin >> reDate;
 		getline(cin, reDate);
 		temp.setReleaseDate(reDate);
 
-		cout << "Enter the suggested price, or MSRP, of the GPU\n";
+		cout << "\nEnter the suggested price, or MSRP, of the GPU\n";
 		cin >> msrp;
 		temp.setMSRP(msrp);
 

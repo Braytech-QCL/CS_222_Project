@@ -9,7 +9,6 @@ void GPU::showInfo()
 	cout << "Release date: " << releaseDate << endl;
 	cout << "Manufacter suggested retail price: " << MSRP << endl;
 
-	boardVar.showInfo();
     processorVar.showInfo();
 
 	
@@ -22,9 +21,8 @@ GPU::GPU(string _name, string _releaseDate, int _MSRP, double slotW, int tdp, st
          int dieS, int trans, int processorS, int memoryS,
                int memoryG, int memoryB, int memoryC)
 	{
-		boardVar = BoardDesign(slotW, tdp, output, powerCon, len, wid, hei);
         processorVar = Processor(baseC, boostC, busI, dieS, trans, processorS,memoryS,
-                                memoryG,memoryB,memoryC);
+                                memoryG,memoryB,memoryC, slotW, tdp, output, powerCon, len, wid, hei);
 		name = _name;
 		releaseDate = _releaseDate;
 		MSRP = _MSRP;

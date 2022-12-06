@@ -5,6 +5,8 @@ using namespace std;
 
 void Processor::showInfo()
 {
+	boardDesign.showInfo();
+
 	cout << "Base clock: " << baseClock << " MHz" << endl;
 	cout << "Boost clock: " << boostClock << " MHz" << endl;
 	cout << "Bus interface: " << busInterface << endl;
