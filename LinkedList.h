@@ -29,9 +29,11 @@ public:
 
 	//list operations
 	void appendNodeFront(T);
-	void appendNodeEnd(T);
-	void insertNodeAfter(T, int);
-	void deleteNode(T);
+	void appendNodeEnd(T); //not implemented
+	void insertNodeAfter(T, int); //not implemented
+	void deleteNode(T); //not implemented
+	void deleteItem(T& item, string name);
+	void destroyList();
 	void search(T&, string);
 	void print();
 	int size();
@@ -175,37 +177,102 @@ void LinkedList<T>::print()
 /// <param name=""></param>
 /// <param name="name"></param>
 template <class T>
-void LinkedList<T>::search(T&, string name)
+void LinkedList<T>::search(T& item, string name)
 {
-	ListNode* nodePtr = nullptr;
+	ListNode* nodePtr = nullptr; // Create a pointer to traverse the list
 
-	nodePtr = head;
+	nodePtr = head; // Start at the head of the list
 
-	bool status = false;
+	bool status = false; // Keep track of whether the item was found
 
-
-	while (nodePtr)
+	// Traverse the list until we find the item with the specified name
+	while (nodePtr != nullptr)
 	{
 		if ((nodePtr->value).getName() == name)
 		{
+			// We have found the item
 			status = true;
-			cout << (nodePtr->value).getName() << name << endl;
 			break;
 		}
 		else
+		{
+			// Move to the next node
 			nodePtr = nodePtr->next;
+		}
 	}
 
+	// Check if the item was found
 	if (status == false)
 	{
-		cout << "GPU not Found" << endl;
+		cout << "Item not found" << endl;
 	}
 	else
 	{
-		cout << "GPU Found\n";
-		(nodePtr->value).showInfo();
+		cout << "Item found\n\n";
+		(nodePtr->value).showInfo(); // Output information about the item
 	}
-		
+}
+
+
+template <class T>
+void LinkedList<T>::deleteItem(T& item, string name)
+{
+	ListNode* nodePtr = head; // Start at the head of the list
+	ListNode* previousNode = nullptr; // Keep track of the previous node
+
+	// Traverse the list until we find the item with the specified name
+	while (nodePtr != nullptr)
+	{
+		if ((nodePtr->value).getName() == name)
+		{
+			// We have found the item to delete
+			break;
+		}
+		else
+		{
+			previousNode = nodePtr;
+			nodePtr = nodePtr->next;
+		}
+	}
+
+	// Check if the item was found
+	if (nodePtr == nullptr)
+	{
+		cout << "Item not found" << endl;
+		return;
+	}
+
+	// If the item to delete is the head of the list, we need to update the head pointer
+	if (nodePtr == head)
+	{
+		head = nodePtr->next;
+	}
+	else
+	{
+		previousNode->next = nodePtr->next;
+	}
+
+	// Delete the node
+	delete nodePtr;
+	cout << "Item deleted" << endl;
+}
+
+
+template <class T>
+void LinkedList<T>::destroyList()
+{
+	ListNode* nodePtr = head; // Start at the head of the list
+
+	// Traverse the list, deleting each node
+	while (nodePtr != nullptr)
+	{
+		ListNode* temp = nodePtr;
+		nodePtr = nodePtr->next;
+		delete temp;
+	}
+
+	// Set the head pointer to null to indicate that the list is empty
+	head = nullptr;
 }
 
 
