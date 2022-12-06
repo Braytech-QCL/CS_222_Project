@@ -63,7 +63,6 @@ private:
 	string releaseDate; //the date the GPU was released for purchase
 	int MSRP; //the manufacturers suggested retail price
 
-	BoardDesign boardVar; //used to call Board Design's show info. Yes it needs to be cleaned up...
     Processor processorVar; //Calls processor info
 };
 
