@@ -1,3 +1,6 @@
+/*
+Linked list functionality for GPU database
+*/
 #ifndef LinkedList_H
 #define LinkedList_H
 
