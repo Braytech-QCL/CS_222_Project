@@ -107,7 +107,7 @@ void selection(int option)
 		}
 		case 2: //deleteing from the list
 		{
-			cout << "Deleting to list\n";
+			deleteItem();
 			break;
 		}
 		case 3: //something has gone wrong, should never execute
@@ -250,4 +250,19 @@ void addList()
 	}
 
 	mainMenu();
+}
+
+void deleteItem(){
+    string gpuToDelete = "";
+    GPU test;
+
+    cin.ignore();
+    cout << "What GPU would you like to search for?" << endl;
+    getline(cin, gpuToDelete);
+
+    GPUDatabaseList.deleteItem(test, gpuToDelete);
+    cout<< GPUDatabaseList.size()<<" GPU's Loaded into Database"<<endl;
+    mainMenu();
+    
+    
 }
