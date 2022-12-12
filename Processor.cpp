@@ -19,4 +19,24 @@ void Processor::showInfo()
 	cout << "Memory Bus: " << memoryBus << " bit" << endl;
 	cout << "Memory clock: " << memoryClock << " MHz" << endl;
 
+	Processor::Processor(int baseC, int boostC, string busI,
+		int dieS, int trans, int processorS, int memoryS,
+		int memoryG, int memoryB, int memoryC, double slotW, int tdp, string output,
+		string powerCon, double len, double wid,  double hei)
+	{
+		//Parameters
+		boardDesign = BoardDesign(slotW, tdp, output, powerCon, len, wid, hei);  //TODO: call set info isntead
+
+		baseClock = baseC;
+		boostClock = boostC;
+		busInterface = busI;
+		dieSize = dieS;
+		transistors = trans;
+		processorSize = processorS;
+		memorySize = memoryS;
+		memoryGen = memoryG;
+		memoryBus = memoryB;
+		memoryClock = memoryC;
+
+	}
 }
