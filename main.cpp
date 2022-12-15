@@ -183,10 +183,7 @@ void searchList()
 	mainMenu();
 }
 
-//GPU::GPU(string _name, string _releaseDate, int _MSRP, double slotW, int tdp, string output,
-//string powerCon, double len, double wid, double hei, int baseC, int boostC, string busI,
-//int dieS, int trans, int processorS, int memoryS,
-//int memoryG, int memoryB, int memoryC)
+// This function populates the database with a pre - defined list of GPUs.
 void populateList()
 {
 	GPU card1 = GPU("NVIDIA GeForce GTX 1080", 2016, 499, 2, 180, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "8-pin", 267, 111, 41, 1607, 1733, "PCIe 3.0 x16", 314, 7200, 16, 8, 8, 256, 10000, "Nvidia", "Pascal", "GeForce10series");
