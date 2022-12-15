@@ -186,45 +186,98 @@ void searchList()
 // This function populates the database with a pre - defined list of GPUs.
 void populateList()
 {
-	GPU card1 = GPU("NVIDIA GeForce GTX 1080", 2016, 499, 2, 180, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "8-pin", 267, 111, 41, 1607, 1733, "PCIe 3.0 x16", 314, 7200, 16, 8, 8, 256, 10000, "Nvidia", "Pascal", "GeForce10series");
-	GPU card2 = GPU("NVIDIA GeForce GTX 1070", 2016, 379, 2, 150, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "8-pin", 277, 111, 40, 1506, 1683, "PCIe 3.0 x16", 314, 7200, 16, 8, 8, 256, 8000);
-	GPU card3 = GPU("NVIDIA GeForce GTX 1060", 2016, 249, 2, 120, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "6-pin", 229, 111, 40, 1506, 1708, "PCIe 3.0 x16", 200, 4400, 16, 6, 6, 192, 8000);
-	GPU card4 = GPU("AMD Radeon RX 5700 XT", 2019, 399, 2, 225, "HDMI 2.0b / DisplayPort 1.4 with DSC", "2x 8-pin", 240, 132, 46, 1605, 1905, "PCIe 4.0 x16", 251, 10300, 7, 8, 36, 256, 14000);
-	GPU card5 = GPU("AMD Radeon RX 5700", 2019, 349, 2, 180, "HDMI 2.0b / DisplayPort 1.4 with DSC", "8-pin", 240, 132, 46, 1465, 1725, "PCIe 4.0 x16", 251, 10300, 7, 8, 36, 256, 14000);
-	GPU card6 = GPU("AMD Radeon RX Vega 64", 2017, 499, 2, 295, "HDMI 2.0 / DisplayPort 1.4 HBR3 / DisplayPort 1.4 HDR", "2x 8-pin", 295, 210, 48, 1247, 1546, "PCIe 3.0 x16", 495, 12500, 14, 8, 64, 2048, 1890);
-	GPU card7 = GPU("AMD Radeon RX Vega 56", 2017, 399, 2, 210, "HDMI 2.0 / DisplayPort 1.4 HBR3 / DisplayPort 1.4 HDR", "2x 8-pin", 295, 210, 48, 1156, 1471, "PCIe 3.0 x16", 495, 12500, 14, 8, 56, 2048, 1600);
-	GPU card8 = GPU("NVIDIA GeForce GTX 1050 Ti", 2016, 139, 2, 75, "HDMI 2.0b / DisplayPort 1.4", "6-pin", 148, 111, 37, 1290, 1392, "PCIe 3.0 x16", 132, 3300, 14, 6, 7, 192, 7000);
-	GPU card9 = GPU("AMD Radeon RX 480", 2016, 199, 2, 150, "HDMI 2.0b / DisplayPort 1.4", "6-pin", 240, 135, 41, 1120, 1266, "PCIe 3.0 x16", 232, 5700, 14, 5, 36, 256, 2000);
-	GPU card10 = GPU("NVIDIA GeForce GTX 970", 2014, 329, 2, 145, "HDMI 1.4a / Dual-Link DVI-D / Dual-Link DVI-I / DisplayPort 1.2", "6-pin + 8-pin", 298, 111, 28, 1050, 1178, "PCIe 3.0 x16", 554, 7000, 28, 6, 13, 256, 7000);
-	GPU card11 = GPU("NVIDIA GeForce GTX 770", 2013, 329, 2, 230, "HDMI 1.4a / Dual-Link DVI-D / Dual-Link DVI-I / DisplayPort 1.2", "8-pin", 284, 111, 28, 1046, 1085, "PCIe 3.0 x16", 3540, 6400, 28, 6, 15, 256, 7000);
-	GPU card12 = GPU("NVIDIA GeForce GTX 670", 2012, 399, 2, 170, "HDMI 1.4a / Dual-Link DVI-D / Dual-Link DVI-I / DisplayPort 1.2", "8-pin", 238, 111, 28, 915, 980, "PCIe 3.0 x16", 3072, 6000, 28, 6, 13, 256, 6000);
-	GPU card13 = GPU("AMD Radeon HD 7970", 2012, 449, 2, 250, "HDMI 1.4a / Dual-Link DVI-D / Dual-Link DVI-I / DisplayPort 1.2", "8-pin", 285, 111, 28, 925, 1375, "PCIe 3.0 x16", 4310, 6000, 28, 6, 20, 384, 5500);
-	GPU card14 = GPU("AMD Radeon HD 7870", 2012, 349, 2, 180, "HDMI 1.4a / Dual-Link DVI-D / Dual-Link DVI-I / DisplayPort 1.2", "6-pin + 8-pin", 240, 111, 28, 1000, 1200, "PCIe 3.0 x16", 2080, 4800, 28, 6, 20, 256, 4800);
-	GPU card15 = GPU("AMD Radeon HD 7850", 2012, 299, 2, 130, "HDMI 1.4a / Dual-Link DVI-D / Dual-Link DVI-I / DisplayPort 1.2", "6-pin", 240, 111, 28, 860, 900, "PCIe 3.0 x16", 1792, 4800, 28, 6, 20, 256, 4800);
-	GPU card16 = GPU("NVIDIA GeForce GTX 980 Ti", 2014, 649, 2, 250, "HDMI 2.0 / Dual-Link DVI-I / Dual-Link DVI-D / DisplayPort 1.2", "8-pin + 6-pin", 270, 111, 28, 1000, 1075, "PCIe 3.0 x16", 2816, 7000, 28, 6, 22, 384, 7000);
-	GPU card17 = GPU("NVIDIA GeForce GTX 970", 2014, 329, 2, 145, "HDMI 1.4a / Dual-Link DVI-D / Dual-Link DVI-I / DisplayPort 1.2", "6-pin + 8-pin", 298, 111, 28, 1050, 1178, "PCIe 3.0 x16", 554, 7000, 28, 6, 13, 256, 7000);
-	GPU card18 = GPU("Intel Arc A580", 2022, 599, 2, 170, "HDMI 2.1 / DisplayPort 1.4", "2x 8-pin", 240, 130, 0, 1605, 1905, "PCIe 4.0 x16", 251, 10300, 7, 8, 57, 256, 16000);
-	GPU card19 = GPU("Intel Arc A770", 2022, 799, 2, 230, "HDMI 2.1 / DisplayPort 1.4", "2x 8-pin", 240, 130, 0, 1605, 1905, "PCIe 4.0 x16", 251, 10300, 7, 8, 57, 256, 16000);
+	GPU gpu_card1 = GPU("NVIDIA GeForce GTX 1050", 2016, 109, 1, 75, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "None", 144, 111, 35, 1354, 1455, "PCIe 3.0 x16", 132, 3500, 2, 8, 6, 128, 7000, "Nvidia", "GeForce10series", "Pascal");
+	GPU gpu_card2 = GPU("NVIDIA GeForce GTX 1060 6 GB", 2016, 299, 2, 120, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "6-pin", 229, 111, 35, 1506, 1708, "PCIe 3.0 x16", 200, 7200, 16, 8, 6, 192, 8000, "Nvidia", "GeForce10series", "Pascal");
+	GPU gpu_card3 = GPU("NVIDIA GeForce GTX 1070", 2016, 399, 2, 150, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "8-pin", 267, 111, 39, 1506, 1683, "PCIe 3.0 x16", 314, 7200, 16, 8, 8, 256, 8000, "Nvidia", "GeForce10series", "Pascal");
+	GPU gpu_card4 = GPU("NVIDIA GeForce GTX 1080 Ti", 2017, 699, 2, 250, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "8-pin", 267, 111, 43, 1480, 1582, "PCIe 3.0 x16", 314, 11000, 16, 8, 11, 352, 11000, "Nvidia", "GeForce10series", "Pascal");
+	GPU gpu_card5 = GPU("NVIDIA TITAN X Pascal", 2016, 1199, 2, 250, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "8-pin", 267, 111, 43, 1417, 1531, "PCIe 3.0 x16", 314, 12000, 16, 8, 10, 384, 10000, "Nvidia", "GeForce10series", "Turing");
+	GPU gpu_card6 = GPU("NVIDIA GeForce GTX 1650", 2019, 149, 1, 75, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "6-pin", 151, 111, 35, 1485, 1665, "PCIe 3.0 x16", 122, 3500, 4, 8, 6, 128, 8000, "Nvidia", "GeForce16series", "Turing");
+	GPU gpu_card7 = GPU("NVIDIA GeForce GTX 1660", 2019, 219, 1, 125, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "6-pin", 171, 111, 36, 1530, 1785, "PCIe 3.0 x16", 192, 6300, 6, 8, 6, 192, 8000, "Nvidia", "GeForce16series", "Turing");
+	GPU gpu_card8 = GPU("NVIDIA GeForce GTX 1660 Ti", 2019, 279, 1, 120, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "6-pin", 171, 111, 36, 1500, 1770, "PCIe 3.0 x16", 192, 6300, 6, 8, 6, 192, 8000, "Nvidia", "GeForce16series", "Turing");
+	GPU gpu_card9 = GPU("NVIDIA GeForce RTX 2060", 2018, 349, 2, 160, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "8-pin", 215, 111, 39, 1365, 1680, "PCIe 3.0 x16", 200, 7200, 6, 8, 6, 192, 8000, "Nvidia", "GeForce20series", "Turing");
+	GPU gpu_card10 = GPU("NVIDIA GeForce RTX 2070", 2018, 499, 2, 175, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "8-pin", 215, 111, 39, 1410, 1710, "PCIe 3.0 x16", 200, 7200, 8, 8, 8, 256, 8000, "Nvidia", "GeForce20series", "Turing");
+	GPU gpu_card11 = GPU("NVIDIA GeForce RTX 2080 SUPER", 2019, 699, 2, 250, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "8-pin", 215, 111, 39, 1650, 1815, "PCIe 3.0 x16", 314, 7200, 8, 8, 8, 256, 10000, "Nvidia", "GeForce20series", "Turing");
+	GPU gpu_card12 = GPU("NVIDIA GeForce RTX 2070", 2018, 499, 2, 175, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "8-pin", 215, 111, 39, 1410, 1710, "PCIe 3.0 x16", 200, 7200, 8, 8, 8, 256, 8000, "Nvidia", "GeForce20series", "Turing");
+	GPU gpu_card13 = GPU("NVIDIA GeForce RTX 3060", 2020, 319, 2, 120, "HDMI 2.1, DisplayPort 1.4a, Dual Link DVI-D", "8-pin", 209, 111, 38, 1320, 1665, "PCIe 4.0 x16", 285, 8400, 8, 8, 8, 256, 14000, "Nvidia", "GeForce30series", "Ampere");
+	GPU gpu_card14 = GPU("NVIDIA GeForce RTX 3070", 2020, 499, 2, 220, "HDMI 2.1, DisplayPort 1.4a, Dual Link DVI-D", "8-pin", 209, 111, 38, 1500, 1725, "PCIe 4.0 x16", 285, 8400, 8, 8, 8, 256, 14000, "Nvidia", "GeForce30series", "Ampere");
+	GPU gpu_card15 = GPU("NVIDIA GeForce RTX 3080", 2020, 699, 2, 320, "HDMI 2.1, DisplayPort 1.4a, Dual Link DVI-D", "12-pin", 284, 111, 38, 1440, 1710, "PCIe 4.0 x16", 628, 10800, 8, 8, 8, 256, 19000, "Nvidia", "GeForce30series", "Ampere");
+	GPU gpu_card16 = GPU("NVIDIA GeForce RTX 3090", 2020, 1499, 2, 350, "HDMI 2.1, DisplayPort 1.4a, Dual Link DVI-D", "12-pin", 328, 111, 38, 1395, 1695, "PCIe 4.0 x16", 628, 10800, 10, 8, 10, 320, 19000, "Nvidia", "GeForce30series", "Ampere");
+	GPU gpu_card17 = GPU("NVIDIA GeForce RTX 3090 Ti", 2021, 1899, 2, 400, "HDMI 2.1, DisplayPort 1.4a, Dual Link DVI-D", "12-pin", 328, 111, 38, 1410, 1710, "PCIe 4.0 x16", 628, 10800, 10, 8, 10, 320, 19000, "Nvidia", "GeForce30series", "Ampere");
+	GPU gpu_card18 = GPU("NVIDIA GeForce RTX 4080", 2022, 799, 3, 350, "HDMI 2.1, DisplayPort 1.4a, Dual Link DVI-D", "12-pin", 284, 111, 38, 1610, 1890, "PCIe 4.0 x16", 826, 13200, 8, 8, 8, 256, 25000, "Nvidia", "GeForce40series", "Ada");
+	GPU gpu_card19 = GPU("NVIDIA GeForce RTX 4090", 2022, 999, 3, 400, "HDMI 2.1, DisplayPort 1.4a, Dual Link DVI-D", "12-pin", 328, 111, 38, 1720, 1980, "PCIe 4.0 x16", 826, 13200, 10, 8, 10, 320, 25000, "Nvidia", "GeForce40series", "Ada");
+	GPU gpu_card20 = GPU("NVIDIA GeForce RTX 4090 Ti", 2022, 1199, 3, 450, "HDMI 2.1, DisplayPort 1.4a, Dual Link DVI-D", "12-pin", 328, 111, 38, 1735, 1995, "PCIe 4.0 x16", 826, 13200, 10, 8, 10, 320, 25000, "Nvidia", "GeForce40series", "Ada");
+	
+	GPU gpu_card21 = GPU("Intel Arc A580", 2022, 399, 1, 65, "HDMI 2.1, DisplayPort 1.4a, Dual Link DVI-D", "8-pin", 216, 111, 36, 1150, 1350, "PCIe 4.0 x16", 315, 7200, 8, 8, 8, 256, 10000, "Intel", "Arc_Alchemist", "Xe_HPG");
+	GPU gpu_card22 = GPU("Intel Arc A770", 2022, 499, 1, 95, "HDMI 2.1, DisplayPort 1.4a, Dual Link DVI-D", "8-pin", 216, 111, 36, 1350, 1550, "PCIe 4.0 x16", 315, 7200, 8, 8, 8, 256, 10000, "Intel", "Arc_Alchemist", "XE_HPG");
+	
+	GPU gpu_card23 = GPU("AMD Radeon RX 460", 2016, 109, 1, 75, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "6-pin", 151, 111, 35, 1090, 1200, "PCIe 3.0 x16", 123, 3600, 4, 8, 6, 128, 7000, "AMD", "RadeonRX400series", "Graphics_Core_Next_4");
+	GPU gpu_card24 = GPU("AMD Radeon RX 470", 2016, 179, 1, 120, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "6-pin", 191, 111, 36, 926, 1206, "PCIe 3.0 x16", 212, 5800, 8, 8, 8, 256, 7000, "AMD", "RadeonRX400series", "Graphics_Core_Next_4");
+	GPU gpu_card25 = GPU("AMD Radeon RX 480", 2016, 239, 1, 150, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "6-pin", 191, 111, 36, 1120, 1266, "PCIe 3.0 x16", 232, 5800, 8, 8, 8, 256, 7000, "AMD", "RadeonRX400series", "Graphics_Core_Next_4");
+	GPU gpu_card26 = GPU("AMD Radeon RX 550", 2017, 89, 1, 50, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "6-pin", 151, 111, 35, 1183, 1287, "PCIe 3.0 x16", 103, 3600, 4, 8, 4, 128, 7000, "AMD", "RadeonRX500series", "AMD_Graphics_Core_Next_5");
+	GPU gpu_card27 = GPU("AMD Radeon RX 560", 2017, 99, 1, 80, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "6-pin", 151, 111, 35, 1175, 1275, "PCIe 3.0 x16", 123, 3600, 4, 8, 6, 128, 7000, "AMD", "RadeonRX500series", "AMD_Graphics_Core_Next_5");
+	GPU gpu_card28 = GPU("AMD Radeon RX 570", 2017, 169, 1, 120, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "6-pin", 191, 111, 36, 1168, 1340, "PCIe 3.0 x16", 212, 5800, 8, 8, 8, 256, 7000, "AMD", "RadeonRX500series", "AMD_Graphics_Core_Next_5");
+	GPU gpu_card29 = GPU("AMD Radeon RX 580", 2017, 229, 1, 185, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "6-pin", 191, 111, 36, 1257, 1340, "PCIe 3.0 x16", 232, 5800, 8, 8, 8, 256, 7000, "AMD", "RadeonRX500series", "AMD_Graphics_Core_Next_5");
+	GPU gpu_card30 = GPU("AMD Radeon RX 590", 2018, 279, 1, 225, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "8-pin", 235, 111, 38, 1576, 1771, "PCIe 3.0 x16", 232, 5800, 8, 8, 8, 256, 7000, "AMD", "RadeonRX500series", "AMD_Graphics_Core_Next_5");
+	GPU gpu_card31 = GPU("AMD Radeon RX 5500 OEM", 2019, 199, 1, 130, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "8-pin", 151, 111, 36, 1685, 1845, "PCIe 4.0 x16", 158, 7200, 8, 8, 8, 128, 7000, "AMD", "RadeonRX5000series", "RDNA1");
+	GPU gpu_card32 = GPU("AMD Radeon RX 5600 OEM", 2019, 279, 1, 150, "HDMI 2.1, DisplayPort 1.4, Dual Link DVI-D", "8-pin", 151, 111, 36, 1190, 1460, "PCIe 4.0 x16", 158, 7200, 6, 8, 6, 128, 7000, "AMD", "RadeonRX5000series", "RDNA1");
+	GPU gpu_card33 = GPU("AMD Radeon RX 5700", 2019, 379, 1, 180, "HDMI 2.1, DisplayPort 1.4, Dual Link DVI-D", "8-pin", 151, 111, 36, 1465, 1625, "PCIe 4.0 x16", 251, 8400, 8, 8, 8, 256, 7000, "AMD", "RadeonRX5000series", "RDNA1");
+	GPU gpu_card34 = GPU("AMD Radeon RX 5700 XT", 2019, 449, 1, 225, "HDMI 2.1, DisplayPort 1.4, Dual Link DVI-D", "8-pin", 151, 111, 36, 1605, 1905, "PCIe 4.0 x16", 251, 8400, 8, 8, 8, 256, 7000, "AMD", "RadeonRX5000series", "RDNA1");
+	GPU gpu_card35 = GPU("AMD Radeon RX 6600", 2022, 349, 1, 150, "HDMI 2.1, DisplayPort 1.4a, Dual Link DVI-D", "8-pin", 151, 111, 36, 1685, 1845, "PCIe 4.0 x16", 158, 7200, 8, 8, 8, 128, 7000, "AMD", "RadeonRX6000series", "RDNA2");
+	GPU gpu_card36 = GPU("AMD Radeon RX 6700", 2022, 449, 1, 180, "HDMI 2.1, DisplayPort 1.4a, Dual Link DVI-D", "8-pin", 151, 111, 36, 1465, 1625, "PCIe 4.0 x16", 251, 8400, 8, 8, 8, 256, 7000, "AMD", "RadeonRX6000series", "RDNA2");
+	GPU gpu_card37 = GPU("AMD Radeon RX 6800", 2020, 599, 1, 250, "HDMI 2.1, DisplayPort 1.4a, Dual Link DVI-D", "8-pin", 151, 111, 36, 1815, 2105, "PCIe 4.0 x16", 438, 12800, 16, 8, 16, 512, 7000, "AMD", "RadeonRX6000series", "RDNA2");
+	GPU gpu_card38 = GPU("AMD Radeon RX 6900 XT", 2020, 999, 2, 300, "HDMI 2.1, DisplayPort 1.4a, Dual Link DVI-D", "8-pin", 151, 111, 36, 2015, 2315, "PCIe 4.0 x16", 438, 12800, 16, 8, 16, 512, 7000, "AMD", "RadeonRX6000series", "RDNA2");
+	GPU gpu_card39 = GPU("AMD Radeon RX 6950 XT", 2021, 1199, 3, 300, "HDMI 2.1, DisplayPort 1.4a, Dual Link DVI-D", "8-pin", 151, 111, 36, 2115, 2415, "PCIe 4.0 x16", 438, 12800, 16, 8, 16, 512, 7000, "AMD", "RadeonRX6000series", "RDNA2");
+	GPU gpu_card40 = GPU("AMD Radeon RX 7900 XT", 2022, 1499, 3, 350, "HDMI 2.1, DisplayPort 1.4a, Dual Link DVI-D", "8-pin", 151, 111, 36, 2315, 2615, "PCIe 4.0 x16", 438, 12800, 16, 8, 16, 512, 7000, "AMD", "RadeonRX7000series", "RDNA3");
+	GPU gpu_card41 = GPU("AMD Radeon RX 7900 XTX", 2022, 1699, 3, 400, "HDMI 2.1, DisplayPort 1.4a, Dual Link DVI-D", "8-pin", 151, 111, 36, 2515, 2815, "PCIe 4.0 x16", 438, 12800, 16, 8, 16, 512, 7000, "AMD", "RadeonRX7000series", "RDNA3");
 
-	GPUDatabaseList.appendNodeFront(card1);
-	GPUDatabaseList.appendNodeFront(card2);
-	GPUDatabaseList.appendNodeFront(card3);
-	GPUDatabaseList.appendNodeFront(card4);
-	GPUDatabaseList.appendNodeFront(card5);
-	GPUDatabaseList.appendNodeFront(card6);
-	GPUDatabaseList.appendNodeFront(card7);
-	GPUDatabaseList.appendNodeFront(card8);
-	GPUDatabaseList.appendNodeFront(card9);
-	GPUDatabaseList.appendNodeFront(card10);
-	GPUDatabaseList.appendNodeFront(card11);
-	GPUDatabaseList.appendNodeFront(card12);
-	GPUDatabaseList.appendNodeFront(card13);
-	GPUDatabaseList.appendNodeFront(card14);
-	GPUDatabaseList.appendNodeFront(card15);
-	GPUDatabaseList.appendNodeFront(card16);
-	GPUDatabaseList.appendNodeFront(card17);
-	GPUDatabaseList.appendNodeFront(card18);
-	GPUDatabaseList.appendNodeFront(card19);
+
+
+
+
+
+
+
+	GPUDatabaseList.appendNodeFront(gpu_card1);
+	GPUDatabaseList.appendNodeFront(gpu_card2);
+	GPUDatabaseList.appendNodeFront(gpu_card3);
+	GPUDatabaseList.appendNodeFront(gpu_card4);
+	GPUDatabaseList.appendNodeFront(gpu_card5);
+	GPUDatabaseList.appendNodeFront(gpu_card6);
+	GPUDatabaseList.appendNodeFront(gpu_card7);
+	GPUDatabaseList.appendNodeFront(gpu_card8);
+	GPUDatabaseList.appendNodeFront(gpu_card9);
+	GPUDatabaseList.appendNodeFront(gpu_card10);
+	GPUDatabaseList.appendNodeFront(gpu_card11);
+	GPUDatabaseList.appendNodeFront(gpu_card12);
+	GPUDatabaseList.appendNodeFront(gpu_card13);
+	GPUDatabaseList.appendNodeFront(gpu_card14);
+	GPUDatabaseList.appendNodeFront(gpu_card15);
+	GPUDatabaseList.appendNodeFront(gpu_card16);
+	GPUDatabaseList.appendNodeFront(gpu_card17);
+	GPUDatabaseList.appendNodeFront(gpu_card18);
+	GPUDatabaseList.appendNodeFront(gpu_card19);
+	GPUDatabaseList.appendNodeFront(gpu_card20);
+	GPUDatabaseList.appendNodeFront(gpu_card21);
+	GPUDatabaseList.appendNodeFront(gpu_card22);
+	GPUDatabaseList.appendNodeFront(gpu_card23);
+	GPUDatabaseList.appendNodeFront(gpu_card24);
+	GPUDatabaseList.appendNodeFront(gpu_card25);
+	GPUDatabaseList.appendNodeFront(gpu_card26);
+	GPUDatabaseList.appendNodeFront(gpu_card27);
+	GPUDatabaseList.appendNodeFront(gpu_card28);
+	GPUDatabaseList.appendNodeFront(gpu_card29);
+	GPUDatabaseList.appendNodeFront(gpu_card30);
+	GPUDatabaseList.appendNodeFront(gpu_card31);
+	GPUDatabaseList.appendNodeFront(gpu_card32);
+	GPUDatabaseList.appendNodeFront(gpu_card33);
+	GPUDatabaseList.appendNodeFront(gpu_card34);
+	GPUDatabaseList.appendNodeFront(gpu_card35);
+	GPUDatabaseList.appendNodeFront(gpu_card36);
+	GPUDatabaseList.appendNodeFront(gpu_card37);
+	GPUDatabaseList.appendNodeFront(gpu_card38);
+	GPUDatabaseList.appendNodeFront(gpu_card39);
+	GPUDatabaseList.appendNodeFront(gpu_card40);
+	GPUDatabaseList.appendNodeFront(gpu_card41);
 	
 }
 
@@ -435,7 +488,7 @@ void viewByArch()
 			return;
 		}
 		break;
-	case 3:
+	case 3: //Only Xe_HPG cards exist right now
 		cout << "Select an architecture:" << endl;
 		cout << "1. Xe_HPG" << endl;
 		cout << "2. Xe2_HPG" << endl;
@@ -518,37 +571,37 @@ void viewByGen()
 		break;
 	case 2:
 		cout << "Select a generation:" << endl;
-		cout << "1. RadeonRX400Series" << endl;
-		cout << "2. RadeonRX500Series" << endl;
-		cout << "3. RadeonRX5000Series" << endl;
-		cout << "4. RadeonRX6000Series" << endl;
-		cout << "5. RadeonRX7000Series" << endl;
+		cout << "1. RadeonRX400series" << endl;
+		cout << "2. RadeonRX500series" << endl;
+		cout << "3. RadeonRX5000series" << endl;
+		cout << "4. RadeonRX6000series" << endl;
+		cout << "5. RadeonRX7000series" << endl;
 		cin >> genNum;
 
 		// Map generation number to name
 		switch (genNum)
 		{
 		case 1:
-			gen = "RadeonRX400Series";
+			gen = "RadeonRX400series";
 			break;
 		case 2:
-			gen = "RadeonRX500Series";
+			gen = "RadeonRX500series";
 			break;
 		case 3:
-			gen = "RadeonRX5000Series";
+			gen = "RadeonRX5000series";
 			break;
 		case 4:
-			gen = "RadeonRX6000Series";
+			gen = "RadeonRX6000series";
 			break;
 		case 5:
-			gen = "RadeonRX7000Series";
+			gen = "RadeonRX7000series";
 			break;
 		default:
 			cout << "Invalid generation selection" << endl;
 			return;
 		}
 		break;
-	case 3:
+	case 3: //Battlemage to Druid dose not exist yes
 		cout << "Select a generation:" << endl;
 		cout << "1. Arc_Alchemist" << endl;
 		cout << "2. Arc_Battlemage" << endl;
