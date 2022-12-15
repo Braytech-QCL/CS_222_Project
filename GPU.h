@@ -81,14 +81,14 @@ public:
 
 
 
-	GPU(string _name = "", string _releaseDate = "", int _MSRP = 0, double slotW = 0, int tdp = 0, string output = "",
+	GPU(string _name = "", int _releaseDate = "", int _MSRP = 0, double slotW = 0, int tdp = 0, string output = "",
 		string powerCon = "", double len = 0, double wid = 0, double hei = 0, int baseC = 0, int boostC = 0, string busI = "",
 		int dieS = 0, int trans = 0, int processorS = 0, int memoryS = 0,
 		int memoryG = 0, int memoryB = 0, int memoryC = 0, string b = "", string g = "", string a = "");
 
 private:
 	string name; //name of GPU
-	string releaseDate; //the date the GPU was released for purchase
+	int releaseDate; //the date the GPU was released for purchase
 	int MSRP; //the manufacturers suggested retail price
 	string brand; //company that produced GPU, either Nvdia, AMD, or Intel
 	string generation; //The generation of GPU

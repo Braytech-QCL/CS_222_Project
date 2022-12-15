@@ -49,6 +49,10 @@ public:
 	void search(T&, string); // searches for an item with the given name in the list and outputs its information if found
 	void print(); //outputs the information of all items in the list
 	int size(); //returns the number of nodes in the list
+
+	void printByArch(string arch); //This function prints the items in the LinkedList that are of the specified architecture.
+	void printByMan(string manufacturer); //This function prints the items in the LinkedList that are manufactured by the specified manufacturer.
+	void printByGen(string generation); //This function prints the items in the LinkedList that are of the specified generation.
 };
 
 /**
@@ -231,6 +235,94 @@ void LinkedList<T>::print()
 	{
 		(nodePtr->value).showInfo();
 		cout << endl;
+		nodePtr = nodePtr->next;
+	}
+}
+
+/**
+This function prints the items in the LinkedList that are manufactured by the specified manufacturer.
+
+Preconditions:
+	'head' points to the first node of a LinkedList
+	'manufacturer' is a string specifying the name of the manufacturer
+
+Postconditions:
+	the items in the list that are manufactured by the specified manufacturer are printed to the console
+
+*/
+template <class T>
+void LinkedList<T>::printByMan(string manufacturer)
+{
+	ListNode nodePtr = nullptr;
+
+	nodePtr = head;
+
+	// Traverse the list and print the items
+	while (nodePtr)
+	{
+		if ((nodePtr_ > value).getBrand() == manufacturer)
+		{
+			(nodePtr->value).showInfo();
+			cout << endl;
+		}
+		nodePtr = nodePtr->next;
+	}
+}
+
+/**
+This function prints the items in the LinkedList that are of the specified generation.
+
+Preconditions:
+	'head' points to the first node of a LinkedList
+	'generation' is an string specifying the generation of graphics cards to print
+
+Postconditions:
+	the items in the list that are of the specified generation are printed to the console
+	*/
+template <class T>
+void LinkedList<T>::printByGen(string generation)
+{
+	ListNode nodePtr = nullptr;
+
+	nodePtr = head;
+
+	// Traverse the list and print the items
+	while (nodePtr)
+	{
+		if ((nodePtr_ > value).getGeneration() == generation)
+		{
+			(nodePtr->value).showInfo();
+			cout << endl;
+		}
+		nodePtr = nodePtr->next;
+	}
+}
+
+/**
+This function prints the items in the LinkedList that are of the specified architecture.
+	
+Preconditions:
+	'head' points to the first node of a LinkedList
+	'arch' is a string specifying the architecture of graphics cards to print
+
+Postconditions:
+	the items in the list that are of the specified architecture are printed to the console
+	*/
+template <class T>
+void LinkedList<T>::printByArch(string arch)
+{
+	ListNode nodePtr = nullptr;
+
+	nodePtr = head;
+
+	// Traverse the list and print the items
+	while (nodePtr)
+	{
+		if ((nodePtr_ > value).getArchitecture() == arch)
+		{
+			(nodePtr->value).showInfo();
+			cout << endl;
+		}
 		nodePtr = nodePtr->next;
 	}
 }

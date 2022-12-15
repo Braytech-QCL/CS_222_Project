@@ -5,8 +5,7 @@
 #include "GPU.h"
 #include "BoardDesign.h"
 #include "LinkedList.h"
-#include <QFileDialog>
-#include <QString>
+
 
 using namespace std;
 
@@ -18,12 +17,16 @@ void searchList();
 void populateList();
 void addList();
 
+void viewByArch();
+void viewByGen();
+void viewByBrand();
+
 
 int main()
 {
 	//test of show info
 	//constructor includes GPU and BoardDesign, other classes have not been connected to GPU
-	/*GPU test = GPU("RX 570", "2017 Q3", 354, 2.0, 200, "HDMI x1, Display Prot x3, DVI x1", "8 pin x1", 50, 30, 10);
+	GPU test = GPU("RX 570", 2017, 354, 2.0, 200, "HDMI x1, Display Prot x3, DVI x1", "8 pin x1", 50, 30, 10);
 	test.showInfo();
 	cout << endl;
 
@@ -38,19 +41,10 @@ int main()
 	while (mainMenu())
 	{
 	}
-	*/
+	
 
-	QString input_file_name = QFileDialog::getOpenFileName(nullptr, "Select Input File", "", "All Files (*)");
-	// Open the input file in read mode and store its contents in a string variable
-	ifstream input_file(input_file_name.toStdString());
-	string input_contents((istreambuf_iterator<char>(input_file)), istreambuf_iterator<char>());
 
-	// Prompt the user to select the output file using the file explorer
-	QString output_file_name = QFileDialog::getSaveFileName(nullptr, "Select Output File", "", "All Files (*)");
 
-	// Open the output file in write mode and write the input contents to it
-	ofstream output_file(output_file_name.toStdString());
-	output_file << input_contents;
 
 }
 
@@ -135,7 +129,7 @@ void selection(int option)
 		}
 		case 4: //search list
 		{
-			cout << "Searching list\n";
+			cout << "Searching list...\n";
 			searchList();
 
 			break;
@@ -143,6 +137,7 @@ void selection(int option)
 		case 5: //view by arch
 		{
 			cout << "Viewing database by arch\n";
+			viewByArch();
 			break;
 		}
 		case 6: //view by gen
@@ -184,20 +179,20 @@ void searchList()
 //int memoryG, int memoryB, int memoryC)
 void populateList()
 {
-	GPU test2 = GPU("NVIDIA GeForce RTX 2080 Ti 12 GB", "2019 Q4 ", 999, 2, 250, "HDMI / 3x DisplayPort 1.4a / USB Type - C", "2x 8 - pin", 267, 116, 35, 1410, 1650,    "PCIe 3.0 x16", 754, 18600, 12, 12, 6, 384, 2000, "Nvidia", );
-	GPU test3 = GPU("NVIDIA GeForce RTX 3070", "2020 Q3", 499, 2, 220, "HDMI 2.1 / 3x DisplayPort1.4a", "1x 12 - pin", 242, 112, 35, 1500, 1725, "PCIe4.0 x16", 392, 17400, 8, 8, 6, 256, 1750);
-	GPU test4 = GPU("NVIDIA GeForce GTX 1050", "2016 Q4", 109, 2, 75, "DVI / HDMI / DisplayPort 1.4a", "None", 145, 111, 35, 1354, 1455, "PCIe 3.0 x16", 132, 3300, 14, 2, 5, 128, 1752);
-	GPU test5 = GPU("NVIDIA GeForce RTX 4080", "2022 Q4", 1200, 3, 320, "HDMI 2.1 / DisplayPort1.4a", "1 x 16-pin", 310, 140, 61, 2205, 2505, "PCIe4.0 x16", 379, 45900, 4, 16, 40, 256, 1400);
+	GPU test2 = GPU("NVIDIA GeForce RTX 2080 Ti 12 GB", 2019, 999, 2, 250, "HDMI / 3x DisplayPort 1.4a / USB Type - C", "2x 8 - pin", 267, 116, 35, 1410, 1650, "PCIe 3.0 x16", 754, 18600, 12, 12, 6, 384, 2000, "Nvidia", "GeForce20series", "Turing");
+	GPU test3 = GPU("NVIDIA GeForce RTX 3070", 2020, 499, 2, 220, "HDMI 2.1 / 3x DisplayPort1.4a", "1x 12 - pin", 242, 112, 35, 1500, 1725, "PCIe4.0 x16", 392, 17400, 8, 8, 6, 256, 1750);
+	GPU test4 = GPU("NVIDIA GeForce GTX 1050", 2016, 109, 2, 75, "DVI / HDMI / DisplayPort 1.4a", "None", 145, 111, 35, 1354, 1455, "PCIe 3.0 x16", 132, 3300, 14, 2, 5, 128, 1752);
+	GPU test5 = GPU("NVIDIA GeForce RTX 4080", 2022, 1200, 3, 320, "HDMI 2.1 / DisplayPort1.4a", "1 x 16-pin", 310, 140, 61, 2205, 2505, "PCIe4.0 x16", 379, 45900, 4, 16, 40, 256, 1400);
 
 	//The follwoing GPUs dont exist, only using for testing purposes
-	GPU test6 = GPU("AMD Radeon RX 5700 XT", "2019", 399, 2, 225, "HDMI 2.0b / DisplayPort 1.4", "1x 8-pin / 1x 6-pin", 240, 110, 0, 1605, 1905, "PCIe 4.0 x16", 251, 10300, 7, 8, 57, 256, 16000);
-	GPU test7 = GPU("Intel Iris Xe Max Graphics", "2020", 199, 1, 28, "HDMI 2.0b / DisplayPort 1.4", "N/A", 135, 95, 0, 1200, 1500, "PCIe 4.0 x8", 123, 940, 10, 4, 6, 128, 1000);
-	GPU test8 = GPU("AMD Radeon Pro W5700X", "2020", 699, 2, 230, "HDMI 2.1 / DisplayPort 1.4", "2x 8-pin", 240, 130, 0, 1605, 1905, "PCIe 4.0 x16", 251, 10300, 7, 8, 57, 256, 16000);
-	GPU test9 = GPU("NVIDIA GeForce GTX 1660", "2019", 219, 2, 120, "DVI / HDMI / DisplayPort 1.4a", "1x 6-pin", 175, 111, 0, 1530, 1785, "PCIe 3.0 x16", 192, 6300, 12, 6, 16, 192, 14000);
-	GPU test10 = GPU("AMD Radeon RX 6800", "2020", 649, 2, 250, "HDMI 2.1 / DisplayPort 1.4", "2x 8-pin", 240, 110, 0, 1800, 2105, "PCIe 4.0 x16", 251, 10300, 7, 16, 68, 256, 16000);
-	GPU test11 = GPU("Intel Iris Xe Graphics", "2020", 99, 1, 28, "HDMI 2.0b / DisplayPort 1.4", "N/A", 135, 95, 0, 1200, 1500, "PCIe 4.0 x8", 123, 940, 10, 4, 0, 64, 1000);
-	GPU test12 = GPU("AMD Radeon Pro W5700", "2020", 599, 2, 230, "HDMI 2.1 / DisplayPort 1.4", "2x 8-pin", 240, 130, 0, 1605, 1905, "PCIe 4.0 x16", 251, 10300, 7, 8, 57, 256, 16000);
-	GPU test13 = GPU("NVIDIA GeForce RTX 2060 Super", "2019", 399, 2, 175, "DVI / HDMI / DisplayPort 1.4a", "1x 8-pin", 175, 111, 0, 1470, 1650, "PCIe 3.0 x16", 192, 6300, 12, 8, 20, 256, 14000);
+	GPU test6 = GPU("AMD Radeon RX 5700 XT", 2019, 399, 2, 225, "HDMI 2.0b / DisplayPort 1.4", "1x 8-pin / 1x 6-pin", 240, 110, 0, 1605, 1905, "PCIe 4.0 x16", 251, 10300, 7, 8, 57, 256, 16000);
+	GPU test7 = GPU("Intel Iris Xe Max Graphics", 2020, 199, 1, 28, "HDMI 2.0b / DisplayPort 1.4", "N/A", 135, 95, 0, 1200, 1500, "PCIe 4.0 x8", 123, 940, 10, 4, 6, 128, 1000);
+	GPU test8 = GPU("AMD Radeon Pro W5700X", 2020, 699, 2, 230, "HDMI 2.1 / DisplayPort 1.4", "2x 8-pin", 240, 130, 0, 1605, 1905, "PCIe 4.0 x16", 251, 10300, 7, 8, 57, 256, 16000);
+	GPU test9 = GPU("NVIDIA GeForce GTX 1660", 2019, 219, 2, 120, "DVI / HDMI / DisplayPort 1.4a", "1x 6-pin", 175, 111, 0, 1530, 1785, "PCIe 3.0 x16", 192, 6300, 12, 6, 16, 192, 14000);
+	GPU test10 = GPU("AMD Radeon RX 6800", 2020, 649, 2, 250, "HDMI 2.1 / DisplayPort 1.4", "2x 8-pin", 240, 110, 0, 1800, 2105, "PCIe 4.0 x16", 251, 10300, 7, 16, 68, 256, 16000);
+	GPU test11 = GPU("Intel Iris Xe Graphics", 2020, 99, 1, 28, "HDMI 2.0b / DisplayPort 1.4", "N/A", 135, 95, 0, 1200, 1500, "PCIe 4.0 x8", 123, 940, 10, 4, 0, 64, 1000);
+	GPU test12 = GPU("AMD Radeon Pro W5700", 2020, 599, 2, 230, "HDMI 2.1 / DisplayPort 1.4", "2x 8-pin", 240, 130, 0, 1605, 1905, "PCIe 4.0 x16", 251, 10300, 7, 8, 57, 256, 16000);
+	GPU test13 = GPU("NVIDIA GeForce RTX 2060 Super", 2019, 399, 2, 175, "DVI / HDMI / DisplayPort 1.4a", "1x 8-pin", 175, 111, 0, 1470, 1650, "PCIe 3.0 x16", 192, 6300, 12, 8, 20, 256, 14000);
 
 	GPUDatabaseList.appendNodeFront(test2);
 	GPUDatabaseList.appendNodeFront(test3);
@@ -281,4 +276,82 @@ void deleteItem(){
     mainMenu();
     
     
+}
+
+void viewByArch()
+{
+	int brand;
+	int archNum;
+	string arch;
+
+	cout << "Select a brand:" << endl;
+	cout << "1. Nvidia" << endl;
+	cout << "2. AMD" << endl;
+	cout << "3. Intel" << endl;
+	cin >> brand;
+
+	// Select architecture based on brand
+	switch (brand)
+	{
+	case 1:
+		cout << "Select an architecture:" << endl;
+		cout << "1. Pascal" << endl;
+		cout << "2. Turing" << endl;
+		cout << "3. Ampere" << endl;
+		cout << "4. Ada" << endl;
+		cin >> archNum;
+
+		// Map architecture number to name
+		switch (archNum)
+		{
+		case 1:
+			arch = "Pascal";
+			break;
+		case 2:
+			arch = "Turing";
+			break;
+		case 3:
+			arch = "Ampere";
+			break;
+		case 4:
+			arch = "Ada";
+			break;
+		default:
+			cout << "Invalid architecture selection" << endl;
+			return;
+		}
+		break;
+	case 2:
+		cout << "Select an architecture:" << endl;
+		cout << "1. Graphics_Core_Next_4" << endl;
+		cout << "2. AMD_Graphics_Core_Next_5" << endl;
+		cout << "3. RDNA1" << endl;
+		cout << "4. RDNA2" << endl;
+		cout << "5. RDNA3" << endl;
+		cin >> archNum;
+
+		// Map architecture number to name
+		switch (archNum)
+		{
+		case 1:
+			arch = "Graphics_Core_Next_4";
+			break;
+		case 2:
+			arch = "AMD_Graphics_Core_Next_5";
+			break;
+		case 3:
+			arch = "RDNA1";
+			break;
+		case 4:
+			arch = "RDNA2";
+}
+
+void viewByGen()
+{
+
+}
+
+void viewByBrand()
+{
+
 }
