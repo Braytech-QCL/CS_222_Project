@@ -1,3 +1,17 @@
+/**
+This code is a driver program for a GPU database. 
+The program uses the LinkedList class to store GPU objects and allows users to perform various actions on the list, 
+such as adding and deleting items, searching for specific items, and viewing the list in different ways.
+
+The program begins by creating a GPU object and adding it to the linked list. Then it calls the populateList function, 
+which populates the linked list with additional GPU objects. After this, the program displays a menu to the user and waits for them to make a selection. 
+Depending on the user's input, the program will perform different actions, 
+such as adding a new GPU object to the list, deleting an existing object, or searching the list in various ways.
+
+@author ConnorMcGill ElbertEsquea
+
+*/
+
 #include <iostream>
 #include <istream>
 #include <string>

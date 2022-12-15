@@ -282,9 +282,11 @@ Postconditions:
 template <class T>
 void LinkedList<T>::printByGen(string generation)
 {
-	ListNode nodePtr = nullptr;
+	ListNode* nodePtr = nullptr;
 
 	nodePtr = head;
+
+	int count = 0;
 
 	// Traverse the list and print the items
 	while (nodePtr)
@@ -293,9 +295,13 @@ void LinkedList<T>::printByGen(string generation)
 		{
 			(nodePtr->value).showInfo();
 			cout << endl;
+			count++;
 		}
 		nodePtr = nodePtr->next;
 	}
+
+	if (count == 0)
+		cout << "No graphics cards found of specified generation" << endl;
 }
 
 /**
@@ -315,6 +321,8 @@ void LinkedList<T>::printByArch(string arch)
 
 	nodePtr = head;
 
+	int count = 0;
+
 	// Traverse the list and print the items
 	while (nodePtr)
 	{
@@ -322,9 +330,13 @@ void LinkedList<T>::printByArch(string arch)
 		{
 			(nodePtr->value).showInfo();
 			cout << endl;
+			count++;
 		}
 		nodePtr = nodePtr->next;
 	}
+
+	if (count == 0)
+		cout << "No graphics cards found of specified architecture" << endl;
 }
 
 /**
