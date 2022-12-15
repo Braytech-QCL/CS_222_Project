@@ -274,7 +274,7 @@ void addList()
 	}
 	else if (option == 2)
 	{
-		cout << "Why do you hate your self?";
+		//TODO allow user to add field for all vars in GPU constructor
 	}
 	else
 	{
