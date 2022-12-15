@@ -16,14 +16,17 @@ void GPU::showInfo()
 
 
 //Constructor
-GPU::GPU(string _name, string _releaseDate, int _MSRP, double slotW, int tdp, string output,
-	string powerCon, double len, double wid, double hei, int baseC, int boostC, string busI,
-         int dieS, int trans, int processorS, int memoryS,
-               int memoryG, int memoryB, int memoryC)
+GPU::GPU(string _name = "", string _releaseDate = "", int _MSRP = 0, double slotW = 0, int tdp = 0, string output = "",
+	string powerCon = "", double len = 0, double wid = 0, double hei = 0, int baseC = 0, int boostC = 0, string busI = "",
+	int dieS = 0, int trans = 0, int processorS = 0, int memoryS = 0,
+	int memoryG = 0, int memoryB = 0, int memoryC = 0,string b = "", string g = "", string a = "")
 	{
         processorVar = Processor(baseC, boostC, busI, dieS, trans, processorS,memoryS,
                                 memoryG,memoryB,memoryC, slotW, tdp, output, powerCon, len, wid, hei);
 		name = _name;
 		releaseDate = _releaseDate;
 		MSRP = _MSRP;
+		brand = b;
+		generation = g;
+		architecture = a;
 	}
