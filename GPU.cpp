@@ -13,7 +13,7 @@ using namespace std;
 	are printed to the console
 	*/
 void GPU::showInfo() {
-	cout << "###General Info###" << endl;
+	cout << "#############------General Info------#############" << endl;
 	cout << "Graphics Card Name: " << name << endl;
 	cout << "Graphics Card Manufacturer: " << brand << endl;
 	cout << "Generation: " << generation << endl;
