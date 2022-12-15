@@ -23,44 +23,31 @@ such as adding a new GPU object to the list, deleting an existing object, or sea
 
 using namespace std;
 
-LinkedList<GPU> GPUDatabaseList;
+LinkedList<GPU> GPUDatabaseList; //A database of GPUs, where each GPU is represented by an object of type GPU
 
-int mainMenu();
-void selection(int option);
-void searchList();
-void populateList();
-void addList();
-void deleteItem();
+int mainMenu(); // This function displays the main menu and prompts the user to select an option. It returns the user's selected option as an integer.
+void selection(int option); //This function takes in an integer representing the user's selected option from the main menu. It then calls the appropriate function for the selected option.
+void searchList(); //This function allows the user to search for a GPU in the database by its name.
+void populateList(); //This function populates the database with a pre-defined list of GPUs.
+void addList(); // This function allows the user to add a new GPU to the database.
+void deleteItem(); //This function allows the user to delete a GPU from the database.
 
-void viewByArch();
-void viewByGen();
-void viewByBrand();
+void viewByArch(); //This function displays the GPUs in the database sorted by their architecture.
+void viewByGen(); //This function displays the GPUs in the database sorted by their generation.
+void viewByBrand(); //This function displays the GPUs in the database sorted by their brand.
 
 
 int main()
 {
-	//test of show info
-	//constructor includes GPU and BoardDesign, other classes have not been connected to GPU
-	GPU test = GPU("RX 570", 2017, 354, 2.0, 200, "HDMI x1, Display Prot x3, DVI x1", "8 pin x1", 50, 30, 10);
-	test.showInfo();
-	cout << endl;
 
-	GPUDatabaseList.appendNodeFront(test);
 
-	populateList();
-	GPUDatabaseList.print();
-
+	populateList(); //fills database with GPUs for demoing purposes. Reading from a file for this was not possible
 
 	cout << "\n\n###---Welcome to GPU Database---###\n";
 	cout << GPUDatabaseList.size() << " GPU(s) have been loaded into the system\n\n";
-	while (mainMenu())
+	while (mainMenu()) //will repeat until user exits, allows for more fluid functionality
 	{
 	}
-	
-
-
-
-
 }
 
 /// <Displays menu for user to decide what they want the program to do>
@@ -101,12 +88,12 @@ int mainMenu()
 		cin >> option;
 		cout << endl;
 
-		if (option > 5 || option < 1)
+		if (option > 6 || option < 1)
 		{
 			cout << "Error reading input, please try again\n";
 			return mainMenu();
 		}
-		else if (option == 5)
+		else if (option == 6)
 			return mainMenu();
 		else
 			option += 3;
@@ -202,7 +189,7 @@ void searchList()
 //int memoryG, int memoryB, int memoryC)
 void populateList()
 {
-	GPU card1 = GPU("NVIDIA GeForce GTX 1080", 2016, 499, 2, 180, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "8-pin", 267, 111, 41, 1607, 1733, "PCIe 3.0 x16", 314, 7200, 16, 8, 8, 256, 10000);
+	GPU card1 = GPU("NVIDIA GeForce GTX 1080", 2016, 499, 2, 180, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "8-pin", 267, 111, 41, 1607, 1733, "PCIe 3.0 x16", 314, 7200, 16, 8, 8, 256, 10000, "Nvidia", "Pascal", "GeForce10series");
 	GPU card2 = GPU("NVIDIA GeForce GTX 1070", 2016, 379, 2, 150, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "8-pin", 277, 111, 40, 1506, 1683, "PCIe 3.0 x16", 314, 7200, 16, 8, 8, 256, 8000);
 	GPU card3 = GPU("NVIDIA GeForce GTX 1060", 2016, 249, 2, 120, "HDMI 2.0b, DisplayPort 1.4, Dual Link DVI-D", "6-pin", 229, 111, 40, 1506, 1708, "PCIe 3.0 x16", 200, 4400, 16, 6, 6, 192, 8000);
 	GPU card4 = GPU("AMD Radeon RX 5700 XT", 2019, 399, 2, 225, "HDMI 2.0b / DisplayPort 1.4 with DSC", "2x 8-pin", 240, 132, 46, 1605, 1905, "PCIe 4.0 x16", 251, 10300, 7, 8, 36, 256, 14000);
@@ -256,10 +243,16 @@ void addList()
 	string name;
 	int msrp, reDate;
 
+	//vars if the user wants to add a full gpu (this will take for ever and is only included for functionality)
+	string output, powerCon, busI;
+	int len, wid, hei, trans, slotW, tdp;
+	int baseC, boostC, dieS, processorS, memoryS, memoryC, memoryG, memoryB;
+	string brand, gen, arch;
+
 	int option;
 	cout << "\n\n\nChoose a option to contiune\n";
 	cout << "1. Add a GPU to the list with minimal specification \n";
-	cout << "2. Add a GPU to the list with full specification\nChoice:";
+	cout << "2. Add a GPU to the list with full specification (Not recomended)\nChoice:";
 	cin >> option;
 	cout << endl;
 
@@ -271,7 +264,7 @@ void addList()
 		getline(cin, name);
 		temp.setName(name);
 
-		cout << "\nEnter the release date of the GPU (year/quater format, 20XX QX)\n";
+		cout << "\nEnter the release date of the GPU (year format, 20XX)\n";
 		cin >> reDate;
 		temp.setReleaseDate(reDate);
 
@@ -279,12 +272,73 @@ void addList()
 		cin >> msrp;
 		temp.setMSRP(msrp);
 
+
 		GPUDatabaseList.appendNodeFront(temp);
+		temp.showInfo();
 		cout << "GPU added to list.\n\n";
 	}
 	else if (option == 2)
 	{
-		//TODO allow user to add field for all vars in GPU constructor
+		// Get user input
+		cin.ignore();
+		cout << "\nEnter the name of the GPU you would like to enter\n";
+		getline(cin, name);
+		cout << "\nEnter the release date of the GPU (year/quater format, 20XX QX)\n";
+		cin >> reDate;
+		cout << "\nEnter the suggested price, or MSRP, of the GPU\n";
+		cin >> msrp;
+		cout << "\nEnter the width of the slot that the GPU occupies on a motherboard\n";
+		cin >> slotW;
+		cout << "\nEnter the thermal design power of the GPU\n";
+		cin >> tdp;
+		cin.ignore();
+		cout << "\nEnter the video output options of the GPU\n";
+		getline(cin, output);
+		cout << "\nEnter the power connector type of the GPU\n";
+		getline(cin, powerCon);
+		cout << "\nEnter the length of the GPU\n";
+		cin >> len;
+		cout << "\nEnter the width of the GPU\n";
+		cin >> wid;
+		cout << "\nEnter the height of the GPU\n";
+		cin >> hei;
+		cout << "\nEnter the base clock speed of the GPU\n";
+		cin >> baseC;
+		cout << "\nEnter the boost clock speed of the GPU\n";
+		cin >> boostC;
+		cin.ignore();
+		cout << "\nEnter the bus interface of the GPU\n";
+		getline(cin, busI);
+		cout << "\nEnter the die size of the GPU\n";
+		cin >> dieS;
+		cout << "\nEnter the number of transistors in the GPU\n";
+		cin >> trans;
+		cout << "\nEnter the size of the GPU\n";
+		cin >> processorS;
+		cout << "\nEnter the size of the memory in the GPU\n";
+		cin >> memoryS;
+		cout << "\nEnter the generation of the memory in the GPU\n";
+		cin >> memoryG;
+		cout << "\nEnter the memory bus width of the GPU\n";
+		cin >> memoryB;
+		cout << "\nEnter the clock speed of the memory in the GPU\n";
+		cin >> memoryC;
+		cin.ignore();
+
+		cout << "\nPlease pay attention to input for next 3 variables, GPU will not list correctly if entered wrong\n\n";
+
+		cout << "\nEnter the brand of the GPU\n";
+		getline(cin, brand);
+		cout << "\nEnter the generation of the GPU\n";
+		getline(cin, gen);
+		cout << "\nEnter the architecture of the GPU\n";
+		getline(cin, arch);
+
+		// Create a new GPU object with the user-specified values
+		GPU temp = GPU(name, reDate, msrp, slotW, tdp, output, powerCon, len, wid, hei, baseC, boostC, busI, dieS, trans, processorS, memoryS, memoryG, memoryB, memoryC, brand, gen, arch);
+		temp.showInfo();
+		GPUDatabaseList.appendNodeFront(temp);
+		cout << "GPU added to list.\n\n";
 	}
 	else
 	{
@@ -301,10 +355,11 @@ void deleteItem()
     GPU test;
 
     cin.ignore();
-    cout << "What GPU would you like to search for?" << endl;
+    cout << "What GPU would you like to delete?" << endl;
     getline(cin, gpuToDelete);
 
     GPUDatabaseList.deleteItem(test, gpuToDelete);
+	cout << endl;
     cout<< GPUDatabaseList.size()<<" GPU's Loaded into Database"<<endl;
     mainMenu();
     
@@ -414,6 +469,7 @@ void viewByArch()
 	}
 
 	GPUDatabaseList.printByArch(arch);
+	mainMenu();
 }
 
 void viewByGen()
@@ -529,6 +585,7 @@ void viewByGen()
 	}
 
 	GPUDatabaseList.printByGen(gen);
+	mainMenu();
 }
 
 void viewByBrand()
@@ -547,6 +604,7 @@ void viewByBrand()
 	{
 	case 1:
 		brand = "Nvidia";
+		break;
 	case 2:
 		brand = "AMD";
 		break;
@@ -559,5 +617,6 @@ void viewByBrand()
 
 	}
 
-	GPUDatabaseList.printByArch(brand);
+	GPUDatabaseList.printByMan(brand);
+	mainMenu();
 }

@@ -253,9 +253,13 @@ Postconditions:
 template <class T>
 void LinkedList<T>::printByMan(string manufacturer)
 {
-	ListNode nodePtr = nullptr;
+	ListNode* nodePtr = nullptr;
 
 	nodePtr = head;
+
+	cout << "pointer" << (nodePtr->value).getBrand();
+	cout << "input" << manufacturer;
+	cout << endl << endl;
 
 	// Traverse the list and print the items
 	while (nodePtr)
