@@ -13,6 +13,11 @@ template <class T>
 class LinkedList
 {
 private:
+	/**
+
+	This is the ListNode struct for the LinkedList class.
+	It contains a value of the specified type and pointers to the next and previous nodes in the list.
+	*/
 	struct ListNode
 	{
 		T value;
@@ -20,10 +25,15 @@ private:
 		struct ListNode* prev;
 	};
 
-	ListNode* head;
-	ListNode* tail;
+	ListNode* head; //This is the head pointer for the LinkedList class. It points to the first node in the list.
+	ListNode* tail; //This is the tail pointer for the LinkedList class. It points to the last node in the list.
+	
 
 public:
+	/**
+	This is the default constructor for the LinkedList class.
+	It initializes the head and tail pointers to nullptr.
+	*/
 	LinkedList()
 	{
 		head = nullptr;
@@ -31,17 +41,25 @@ public:
 	}
 
 	//list operations
-	void appendNodeFront(T);
-	void appendNodeEnd(T); //not implemented
-	void insertNodeAfter(T, int); //not implemented
-	void deleteNode(T); //not implemented
-	void deleteItem(T& item, string name);
-	void destroyList();
-	void search(T&, string);
-	void print();
-	int size();
+	void appendNodeFront(T); //appends a new node with the given value to the front of the list
+	void appendNodeEnd(T); //not used, appends a new node with the given value to the end of the list
+	void deleteNode(T); //not used, deletes the first node with the given value from the list
+	void deleteItem(T& item, string name); //deletes the item with the given name from the list
+	void destroyList(); //deletes all nodes in the list
+	void search(T&, string); // searches for an item with the given name in the list and outputs its information if found
+	void print(); //outputs the information of all items in the list
+	int size(); //returns the number of nodes in the list
 };
 
+/**
+	This function returns the number of nodes in the LinkedList.
+
+	Preconditions:
+		'head' points to the first node of a LinkedList
+
+	Postconditions:
+		the number of nodes in the LinkedList is returned
+*/
 template <class T>
 int LinkedList<T>::size() 
 {
@@ -59,6 +77,18 @@ int LinkedList<T>::size()
 	return size;
 }
 
+/**
+
+	This function adds a new node to the front of the LinkedList.
+
+	Preconditions:
+		'num' is a T object
+		'head' points to the first node of a LinkedList
+
+	Postconditions:
+		a new node is created and added to the front of the list
+		the 'head' pointer is updated to point to the new node
+*/
 template <class T>
 void LinkedList<T>::appendNodeFront(T num)
 {
@@ -85,6 +115,18 @@ void LinkedList<T>::appendNodeFront(T num)
 	}
 }
 
+/**
+
+	This function adds a new node to the end of the LinkedList.
+
+	Preconditions:
+		'num' is a T object
+		'head' points to the first node of a LinkedList
+
+	Postconditions:
+		a new node is created and added to the end of the list
+		the 'tail' pointer is updated to point to the new node
+*/
 template <class T>
 void LinkedList<T>::appendNodeEnd(T num)
 {
@@ -116,12 +158,21 @@ void LinkedList<T>::appendNodeEnd(T num)
 	}
 }
 
-template <class T>
-void LinkedList<T>::insertNodeAfter(T, int)
-{
+/**
+	This function deletes a node from the LinkedList.
 
-}
+	Preconditions:
+		'p' is a T object
+		'head' points to the first node of a LinkedList
 
+	Postconditions:
+		if 'p' is the first item in the list, it is deleted and the head pointer
+	is updated to point to the next item in the list
+
+		if 'p' is not the first item in the list, it is deleted and the next
+	pointer of the previous node is updated to point to the next node in the
+	list
+*/
 template <class T>
 void LinkedList<T>::deleteNode(T p)
 {
@@ -158,13 +209,24 @@ void LinkedList<T>::deleteNode(T p)
 
 
 
+/**
+
+	This function prints the items in the LinkedList to the console.
+
+	Preconditions:
+		'head' points to the first node of a LinkedList
+
+	Postconditions:
+		the items in the list are printed to the console
+*/
 template <class T>
 void LinkedList<T>::print()
 {
-	ListNode* nodePtr = nullptr;
+	ListNode nodePtr = nullptr;
 
 	nodePtr = head;
 
+	// Traverse the list and print the items
 	while (nodePtr)
 	{
 		(nodePtr->value).showInfo();
@@ -173,12 +235,25 @@ void LinkedList<T>::print()
 	}
 }
 
-/// <Search Function>
-/// 
-/// </summary>
-/// <typeparam name="T"></typeparam>
-/// <param name=""></param>
-/// <param name="name"></param>
+/**
+
+	This function searches for an item in the LinkedList.
+
+	Preconditions:
+		'item' is a reference to a T object
+		'name' is the name of the item to be searched for
+
+	Postconditions:
+		if the item with the specified name is found in the list, information
+	about the item is printed to the console and a message is printed
+	indicating that the item was found 
+	
+		if the item with the specified name is not found in the list, a message
+	is printed to the console indicating that the item was not found
+
+	@param item A reference to a T object
+	@param name The name of the item to be searched for
+*/
 template <class T>
 void LinkedList<T>::search(T& item, string name)
 {
@@ -216,14 +291,28 @@ void LinkedList<T>::search(T& item, string name)
 	}
 }
 
-/// <Delets an imem from the database>
-/// 
-/// Precondition: A name of a graphics card is entered
-/// 
-/// </summary>
-/// <typeparam name="T"></typeparam>
-/// <param name="item"></param>
-/// <param name="name"></param>
+/**
+
+	This function deletes an item from the LinkedList.
+
+	Preconditions:
+		'item' is a reference to a T object
+		'name' is the name of the item to be deleted
+
+	Postconditions:
+		if the item with the specified name is found in the list, it is deleted
+
+	and a message is printed to the console indicating that the item has been
+
+	deleted
+		if the item with the specified name is not found in the list, a message
+
+	is printed to the console indicating that the item was not found
+
+	@param item A reference to a T object
+
+	@param name The name of the item to be deleted
+*/
 template <class T>
 void LinkedList<T>::deleteItem(T& item, string name)
 {
@@ -267,7 +356,19 @@ void LinkedList<T>::deleteItem(T& item, string name)
 	cout << "Item deleted" << endl;
 }
 
+/**
 
+	This function destroys the LinkedList by freeing up the memory occupied by its
+
+	nodes.
+
+	Preconditions:
+		'head' points to the first node of a LinkedList
+
+	Postconditions:
+		the memory occupied by the LinkedList is freed
+		the head pointer is set to null to indicate that the list is empty
+*/
 template <class T>
 void LinkedList<T>::destroyList()
 {

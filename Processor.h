@@ -95,7 +95,7 @@ public:
 		string powerCon = "", double len = 0, double wid = 0, double hei = 0)
 	{
         //Parameters
-		boardDesign = BoardDesign(slotW, tdp, output, powerCon, len, wid, hei);  //TODO: call set info isntead
+		boardDesign.setInfo(slotW, tdp, output, powerCon, len, wid, hei);
 
         baseClock = baseC;
         boostClock = boostC;

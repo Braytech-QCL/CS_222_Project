@@ -2,11 +2,11 @@
 #include <istream>
 #include <string>
 #include <fstream>
-#include <QFileDialog>
-#include <QString>
 #include "GPU.h"
 #include "BoardDesign.h"
 #include "LinkedList.h"
+#include <QFileDialog>
+#include <QString>
 
 using namespace std;
 
@@ -184,7 +184,7 @@ void searchList()
 //int memoryG, int memoryB, int memoryC)
 void populateList()
 {
-	GPU test2 = GPU("NVIDIA GeForce RTX 2080 Ti 12 GB", "2019 Q4 ", 999, 2, 250, "HDMI / 3x DisplayPort 1.4a / USB Type - C", "2x 8 - pin", 267, 116, 35, 1410, 1650,    "PCIe 3.0 x16", 754, 18600, 12, 12, 6, 384, 2000);
+	GPU test2 = GPU("NVIDIA GeForce RTX 2080 Ti 12 GB", "2019 Q4 ", 999, 2, 250, "HDMI / 3x DisplayPort 1.4a / USB Type - C", "2x 8 - pin", 267, 116, 35, 1410, 1650,    "PCIe 3.0 x16", 754, 18600, 12, 12, 6, 384, 2000, "Nvidia", );
 	GPU test3 = GPU("NVIDIA GeForce RTX 3070", "2020 Q3", 499, 2, 220, "HDMI 2.1 / 3x DisplayPort1.4a", "1x 12 - pin", 242, 112, 35, 1500, 1725, "PCIe4.0 x16", 392, 17400, 8, 8, 6, 256, 1750);
 	GPU test4 = GPU("NVIDIA GeForce GTX 1050", "2016 Q4", 109, 2, 75, "DVI / HDMI / DisplayPort 1.4a", "None", 145, 111, 35, 1354, 1455, "PCIe 3.0 x16", 132, 3300, 14, 2, 5, 128, 1752);
 	GPU test5 = GPU("NVIDIA GeForce RTX 4080", "2022 Q4", 1200, 3, 320, "HDMI 2.1 / DisplayPort1.4a", "1 x 16-pin", 310, 140, 61, 2205, 2505, "PCIe4.0 x16", 379, 45900, 4, 16, 40, 256, 1400);
