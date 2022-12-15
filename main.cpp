@@ -1,6 +1,9 @@
 #include <iostream>
 #include <istream>
 #include <string>
+#include <fstream>
+#include <QFileDialog>
+#include <QString>
 #include "GPU.h"
 #include "BoardDesign.h"
 #include "LinkedList.h"
@@ -20,7 +23,7 @@ int main()
 {
 	//test of show info
 	//constructor includes GPU and BoardDesign, other classes have not been connected to GPU
-	GPU test = GPU("RX 570", "2017 Q3", 354, 2.0, 200, "HDMI x1, Display Prot x3, DVI x1", "8 pin x1", 50, 30, 10);
+	/*GPU test = GPU("RX 570", "2017 Q3", 354, 2.0, 200, "HDMI x1, Display Prot x3, DVI x1", "8 pin x1", 50, 30, 10);
 	test.showInfo();
 	cout << endl;
 
@@ -35,6 +38,19 @@ int main()
 	while (mainMenu())
 	{
 	}
+	*/
+
+	QString input_file_name = QFileDialog::getOpenFileName(nullptr, "Select Input File", "", "All Files (*)");
+	// Open the input file in read mode and store its contents in a string variable
+	ifstream input_file(input_file_name.toStdString());
+	string input_contents((istreambuf_iterator<char>(input_file)), istreambuf_iterator<char>());
+
+	// Prompt the user to select the output file using the file explorer
+	QString output_file_name = QFileDialog::getSaveFileName(nullptr, "Select Output File", "", "All Files (*)");
+
+	// Open the output file in write mode and write the input contents to it
+	ofstream output_file(output_file_name.toStdString());
+	output_file << input_contents;
 
 }
 
