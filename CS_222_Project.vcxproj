@@ -128,7 +128,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BoardDesign.cpp" />
-    <ClCompile Include="GenArchEnum.cpp" />
     <ClCompile Include="GPU.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Processor.cpp" />
@@ -136,7 +135,6 @@
   <ItemGroup>
     <ClInclude Include="BoardDesign.h" />
     <ClInclude Include="LinkedList.h" />
-    <ClInclude Include="GenArchEnum.h" />
     <ClInclude Include="GPU.h" />
     <ClInclude Include="Processor.h" />
   </ItemGroup>
