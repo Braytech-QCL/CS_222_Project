@@ -216,7 +216,14 @@ void LinkedList<T>::search(T& item, string name)
 	}
 }
 
-
+/// <Delets an imem from the database>
+/// 
+/// Precondition: A name of a graphics card is entered
+/// 
+/// </summary>
+/// <typeparam name="T"></typeparam>
+/// <param name="item"></param>
+/// <param name="name"></param>
 template <class T>
 void LinkedList<T>::deleteItem(T& item, string name)
 {
