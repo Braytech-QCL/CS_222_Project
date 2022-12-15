@@ -21,7 +21,7 @@ public:
 		name = _name;
 	}
 
-	void setReleaseDate(string _releaseDate = "")
+	void setReleaseDate(int _releaseDate = 0)
 	{
 		releaseDate = _releaseDate;
 	}
@@ -53,7 +53,7 @@ public:
 		return name;
 	}
 
-	string getReleaseDate()
+	int getReleaseDate()
 	{
 		return releaseDate;
 	}
@@ -81,7 +81,7 @@ public:
 
 
 
-	GPU(string _name = "", int _releaseDate = "", int _MSRP = 0, double slotW = 0, int tdp = 0, string output = "",
+	GPU(string _name = "", int _releaseDate = 0, int _MSRP = 0, double slotW = 0, int tdp = 0, string output = "",
 		string powerCon = "", double len = 0, double wid = 0, double hei = 0, int baseC = 0, int boostC = 0, string busI = "",
 		int dieS = 0, int trans = 0, int processorS = 0, int memoryS = 0,
 		int memoryG = 0, int memoryB = 0, int memoryC = 0, string b = "", string g = "", string a = "");

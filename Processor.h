@@ -88,7 +88,34 @@ public:
 		memoryClock = memoryC;
 	}
     
-	//constructor for processor
+	/**
+		This is the constructor for the Processor class. It initializes a new Processor
+		object with the given information.
+
+		Preconditions:
+			'boardDesign' is a valid BoardDesign object
+
+		Postconditions:
+			a new Processor object is created with the given information
+
+		@param baseC The base clock speed of the Processor
+		@param boostC The boost clock speed of the Processor
+		@param busI The bus interface of the Processor
+		@param dieS The die size of the Processor
+		@param trans The number of transistors in the Processor
+		@param processorS The size of the Processor
+		@param memoryS The size of the memory in the Processor
+		@param memoryG The generation of the memory in the Processor
+		@param memoryB The memory bus width of the Processor
+		@param memoryC The clock speed of the memory in the Processor
+		@param slotW The width of the slot that the Processor occupies on a motherboard
+		@param tdp The thermal design power of the Processor
+		@param output The output power of the Processor
+		@param powerCon The power connector type of the Processor
+		@param len The length of the Processor
+		@param wid The width of the Processor
+		@param hei The height of the Processor
+		*/
 	Processor(int baseC = 0 , int boostC = 0, string busI = "",
 		int dieS = 0, int trans = 0, int processorS = 0, int memoryS = 0,
               int memoryG = 0, int memoryB = 0, int memoryC = 0, double slotW = 0, int tdp = 0, string output = "",

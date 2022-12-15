@@ -59,10 +59,10 @@ void GPU::showInfo() {
     @param g The generation of the GPU
     @param a The architecture of the GPU
     */
-GPU::GPU(string _name = "", int _releaseDate = 0, int _MSRP = 0, double slotW = 0, int tdp = 0, string output = "",
-	string powerCon = "", double len = 0, double wid = 0, double hei = 0, int baseC = 0, int boostC = 0, string busI = "",
-	int dieS = 0, int trans = 0, int processorS = 0, int memoryS = 0,
-	int memoryG = 0, int memoryB = 0, int memoryC = 0, string b = "", string g = "", string a = "")
+GPU::GPU(string _name, int _releaseDate, int _MSRP, double slotW, int tdp, string output,
+	string powerCon, double len, double wid, double hei, int baseC, int boostC, string busI,
+	int dieS, int trans, int processorS, int memoryS,
+	int memoryG, int memoryB, int memoryC, string b, string g, string a)
 {
 	// Initialize the processorVar object with the given values
 	processorVar = Processor(baseC, boostC, busI, dieS, trans, processorS, memoryS,
@@ -70,7 +70,7 @@ GPU::GPU(string _name = "", int _releaseDate = 0, int _MSRP = 0, double slotW = 
 
 	// Assign values to the name, release date, and MSRP variables
 	name = _name;
-	int = _releaseDate;
+	releaseDate = _releaseDate;
 	MSRP = _MSRP;
 
 	// Assign values to the brand, generation, and architecture variables

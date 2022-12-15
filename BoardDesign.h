@@ -78,8 +78,33 @@ public:
 		height = hei;
 	}
 
-	BoardDesign(double slotW = 0, int tdp = 0, string output = "", 
-                string powerCon = "", double len = 0, double wid = 0, double hei = 0);
+	/**
+
+	This is the constructor for the BoardDesign class. It initializes a new
+	BoardDesign object with the given information.
+	Preconditions:
+		'boardDesign' is a valid BoardDesign object
+	Postconditions:
+		a new BoardDesign object is created with the given information
+	@param slotW The width of the slot that the Processor occupies on a motherboard
+	@param tdp The thermal design power of the Processor
+	@param output The video output options of the Processor
+	@param powerCon The power connector type of the Processor
+	@param len The length of the Processor
+	@param wid The width of the Processor
+	@param hei The height of the Processor
+	*/
+	BoardDesign(double slotW = 0, int tdp = 0, string output = "",
+		string powerCon = "", double len = 0, double wid = 0, double hei = 0)
+	{
+		slotWidth = slotW;
+		TDP = tdp;
+		videoOutputs = output;
+		powerConnector = powerCon;
+		length = len;
+		width = wid;
+		height = hei;
+	}
 
 
 private:

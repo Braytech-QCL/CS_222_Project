@@ -226,7 +226,7 @@ void LinkedList<T>::deleteNode(T p)
 template <class T>
 void LinkedList<T>::print()
 {
-	ListNode nodePtr = nullptr;
+	ListNode* nodePtr = nullptr;
 
 	nodePtr = head;
 
@@ -260,7 +260,7 @@ void LinkedList<T>::printByMan(string manufacturer)
 	// Traverse the list and print the items
 	while (nodePtr)
 	{
-		if ((nodePtr_ > value).getBrand() == manufacturer)
+		if ((nodePtr-> value).getBrand() == manufacturer)
 		{
 			(nodePtr->value).showInfo();
 			cout << endl;
@@ -289,7 +289,7 @@ void LinkedList<T>::printByGen(string generation)
 	// Traverse the list and print the items
 	while (nodePtr)
 	{
-		if ((nodePtr_ > value).getGeneration() == generation)
+		if ((nodePtr-> value).getGeneration() == generation)
 		{
 			(nodePtr->value).showInfo();
 			cout << endl;
@@ -311,14 +311,14 @@ Postconditions:
 template <class T>
 void LinkedList<T>::printByArch(string arch)
 {
-	ListNode nodePtr = nullptr;
+	ListNode* nodePtr = nullptr;
 
 	nodePtr = head;
 
 	// Traverse the list and print the items
 	while (nodePtr)
 	{
-		if ((nodePtr_ > value).getArchitecture() == arch)
+		if ((nodePtr-> value).getArchitecture() == arch)
 		{
 			(nodePtr->value).showInfo();
 			cout << endl;

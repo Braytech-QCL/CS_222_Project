@@ -16,6 +16,7 @@ void selection(int option);
 void searchList();
 void populateList();
 void addList();
+void deleteItem();
 
 void viewByArch();
 void viewByGen();
@@ -80,8 +81,9 @@ int mainMenu()
 		cout << "1. Search for a specific graphics card by name\n";
 		cout << "2. View graphics cards by architecture\n";
 		cout << "3. View graphics cards by generation\n";
-		cout << "4. View all graphics cards\n";
-		cout << "5. Go back\nOption: ";
+		cout << "4. View graphics cards by manufacturer\n";
+		cout << "5. View all graphics cards\n";
+		cout << "6. Go back\nOption: ";
 		cin >> option;
 		cout << endl;
 
@@ -143,9 +145,16 @@ void selection(int option)
 		case 6: //view by gen
 		{
 			cout << "Viewing by gen\n";
+			viewByGen();
 			break;
 		}
-		case 7: //view all
+		case 7: //view by brand
+		{
+			cout << "Viewing by Manufacturer\n";
+			viewByBrand();
+			break;
+		}
+		case 8: //view all
 		{
 			cout << "Viewing all\n";
 			GPUDatabaseList.print();
@@ -220,8 +229,8 @@ void populateList()
 void addList()
 {
 	//vars used to define GPU obj by user
-	string name, reDate;
-	int msrp;
+	string name;
+	int msrp, reDate;
 
 	int option;
 	cout << "\n\n\nChoose a option to contiune\n";
@@ -240,7 +249,6 @@ void addList()
 
 		cout << "\nEnter the release date of the GPU (year/quater format, 20XX QX)\n";
 		cin >> reDate;
-		getline(cin, reDate);
 		temp.setReleaseDate(reDate);
 
 		cout << "\nEnter the suggested price, or MSRP, of the GPU\n";
@@ -263,7 +271,8 @@ void addList()
 	mainMenu();
 }
 
-void deleteItem(){
+void deleteItem()
+{
     string gpuToDelete = "";
     GPU test;
 
@@ -274,7 +283,6 @@ void deleteItem(){
     GPUDatabaseList.deleteItem(test, gpuToDelete);
     cout<< GPUDatabaseList.size()<<" GPU's Loaded into Database"<<endl;
     mainMenu();
-    
     
 }
 
@@ -344,14 +352,188 @@ void viewByArch()
 			break;
 		case 4:
 			arch = "RDNA2";
+		case 5:
+			arch = "RDNA3";
+		default:
+			cout << "Invalid architecture selection" << endl;
+			return;
+		}
+		break;
+	case 3:
+		cout << "Select an architecture:" << endl;
+		cout << "1. Xe_HPG" << endl;
+		cout << "2. Xe2_HPG" << endl;
+		cout << "3. Xe3_HPG" << endl;
+		cout << "4. Xe_Next_Architecture" << endl;
+		cin >> archNum;
+
+		// Map architecture number to name
+		switch (archNum)
+		{
+		case 1:
+			arch = "Xe_HPG";
+			break;
+		case 2:
+			arch = "Xe2_HPG";
+			break;
+		case 3:
+			arch = "Xe3_HPG";
+			break;
+		case 4:
+			arch = "Xe_Next_Architecture";
+			break;
+		default:
+			cout << "Invalid architecture selection" << endl;
+			return;
+		}
+		break;
+	}
+
+	GPUDatabaseList.printByArch(arch);
 }
 
 void viewByGen()
 {
+	int brand;
+	int genNum;
+	string gen;
 
+	cout << "Select a manufacturer:" << endl;
+	cout << "1. Nvidia" << endl;
+	cout << "2. AMD" << endl;
+	cout << "3. Intel" << endl;
+	cin >> brand;
+
+	// Select generation based on brand
+	switch (brand)
+	{
+	case 1:
+		cout << "Select a generation:" << endl;
+		cout << "1. GeForce10series" << endl;
+		cout << "2. GeForce16Series" << endl;
+		cout << "3. GeForce20series" << endl;
+		cout << "4. GeForce30Series" << endl;
+		cout << "5. GeForce40series" << endl;
+		cin >> genNum;
+
+		// Map generation number to name
+		switch (genNum)
+		{
+		case 1:
+			gen = "GeForce10series";
+			break;
+		case 2:
+			gen = "GeForce16Series";
+			break;
+		case 3:
+			gen = "GeForce20series";
+			break;
+		case 4:
+			gen = "GeForce30Series";
+			break;
+		case 5:
+			gen = "GeForce40series";
+			break;
+		default:
+			cout << "Invalid generation selection" << endl;
+			return;
+		}
+		break;
+	case 2:
+		cout << "Select a generation:" << endl;
+		cout << "1. RadeonRX400Series" << endl;
+		cout << "2. RadeonRX500Series" << endl;
+		cout << "3. RadeonRX5000Series" << endl;
+		cout << "4. RadeonRX6000Series" << endl;
+		cout << "5. RadeonRX7000Series" << endl;
+		cin >> genNum;
+
+		// Map generation number to name
+		switch (genNum)
+		{
+		case 1:
+			gen = "RadeonRX400Series";
+			break;
+		case 2:
+			gen = "RadeonRX500Series";
+			break;
+		case 3:
+			gen = "RadeonRX5000Series";
+			break;
+		case 4:
+			gen = "RadeonRX6000Series";
+			break;
+		case 5:
+			gen = "RadeonRX7000Series";
+			break;
+		default:
+			cout << "Invalid generation selection" << endl;
+			return;
+		}
+		break;
+	case 3:
+		cout << "Select a generation:" << endl;
+		cout << "1. Arc_Alchemist" << endl;
+		cout << "2. Arc_Battlemage" << endl;
+		cout << "3. Arc_Celestial" << endl;
+		cout << "4. Arc_Druid" << endl;
+		cin >> genNum;
+
+		// Map generation number to name
+		switch (genNum)
+		{
+		case 1:
+			gen = "Arc_Alchemist";
+			break;
+		case 2:
+			gen = "Arc_Battlemage";
+			break;
+		case 3:
+			gen = "Arc_Celestial";
+			break;
+		case 4:
+			gen = "Arc_Druid";
+			break;
+		default:
+			cout << "Invalid generation selection" << endl;
+			return;
+		}
+		break;
+	default:
+		cout << "Invalid manufacturer selection" << endl;
+		return;
+	}
+
+	GPUDatabaseList.printByGen(gen);
 }
 
 void viewByBrand()
 {
+	int ch;
+	string brand;
 
+	cout << "Select a manufacturer:" << endl;
+	cout << "1. Nvidia" << endl;
+	cout << "2. AMD" << endl;
+	cout << "3. Intel" << endl;
+	cin >> ch;
+
+	// Select manufacturer
+	switch (ch)
+	{
+	case 1:
+		brand = "Nvidia";
+	case 2:
+		brand = "AMD";
+		break;
+	case 3:
+		brand = "Intel";
+		break;
+	default:
+		cout << "Invalid manufacturer selection" << endl;
+		return;
+
+	}
+
+	GPUDatabaseList.printByArch(brand);
 }
